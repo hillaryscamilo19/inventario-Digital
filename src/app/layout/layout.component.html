@@ -1,0 +1,104 @@
+<div class="drawer lg:drawer-open">
+  <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
+  <div class="drawer-content flex flex-col items-center justify-center">
+    <!-- Page content here -->
+    <label for="my-drawer-2" class="btn btn-primary drawer-button lg:hidden">
+      Open drawer
+    </label>
+  </div>
+  <div class="drawer-side">
+    <label
+      for="my-drawer-2"
+      aria-label="close sidebar"
+      class="drawer-overlay"
+    ></label>
+    <!-- sidebar.component.html -->
+
+    <div class="menu primary di-sidebar text-color min-h-full w-80 p-4 p">
+      <!-- Logo -->
+      <div class="mb-8">
+        <h3 class="Title-sidebar">Inventario SSV</h3>
+      </div>
+
+      <!--Dashboard-->
+      <div>
+        <ul>
+          <li>
+            <a
+              class="text-sm font-semibold text-gray-900 mb-2"
+              href="/dashboard"
+            >
+              <i class="pi pi-home" style="font-size: 2.5rem"></i>
+              Dashboard
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!--Medicamento-->
+      <div>
+        <ul>
+          <li>
+            <a
+              class="text-sm font-semibold text-gray-900 mb-2"
+              href="/medicamento"
+            >
+              <i class="pi pi-th-large" style="font-size: 2.5rem"></i>
+              Medicamento
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!--Uniforme-->
+      <div>
+        <ul>
+          <li>
+            <a
+              class="text-sm font-semibold text-gray-900 mb-2"
+              href="/uniforme"
+            >
+              <i class="pi pi-box" style="font-size: 2.5rem"></i>
+              Uniforme
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!--Inventario-->
+      <div>
+        <ul>
+          <li>
+            <a
+              class="text-sm font-semibold text-gray-900 mb-2"
+              href="/inventario"
+            >
+              <i class="pi pi-file-edit" style="font-size: 2.5rem"></i>
+              Inventario
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!--Historial-->
+      <div>
+        <ul>
+          <li>
+            <a
+              class="text-sm font-semibold text-gray-900 mb-2"
+              href="/historial"
+            >
+              <i class="pi pi-calendar" style="font-size: 2.5rem"></i>
+              Historial
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Contenido dinámico -->
+  <main class="flex-1 p-6 bg-blue-50">
+    <router-outlet></router-outlet>
+  </main>
+</div>

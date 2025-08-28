@@ -1,0 +1,18 @@
+.text-color {
+  color: rgb(0, 0, 0);
+}
+
+.di-sidebar {
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  border-radius: 25px;
+  text-align: center;
+  flex-direction: column;
+  align-content: flex-start;
+  align-items: flex-start;
+}
+
+.Title-sidebar {
+  font-size: 34px;
+  margin-left: 16px;
+}

@@ -5,15 +5,27 @@ import { RegistroComponent } from "./features/registro/components/registro.compo
 import { ReportesComponent } from "./features/reportes/components/reportes.component";
 import { AuthComponent } from "./features/auth/components/auth.component";
 import { TestComponent } from "./test.component";
+import { LayoutComponent } from "./layout/layout.component";
+import { MedicamentoComponent } from "./features/medicamento/medicamento.component";
+import { DashboardComponent } from "./features/home/dashboard/dashboard.component";
+import { UniformeComponent } from "./features/uniforme/uniforme.component";
+import { HistorialComponent } from "./features/historial/historial.component";
 
-const routes: Routes = [
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
-  { path: 'inventario', component: InventarioComponent },
-  { path: 'registro', component: RegistroComponent },
-  { path: 'reportes', component: ReportesComponent },
-  { path: 'login', component: AuthComponent },
-    { path: 'test', component: TestComponent }  // ✅ ruta de prueba
+export const routes: Routes = [
+  {
+    path: '',
+    component: LayoutComponent,
+    children: [
+      { path: 'dashboard', component: DashboardComponent },
+      { path: 'inventario', component: InventarioComponent },
+      { path: 'medicamento', component: MedicamentoComponent },
+      { path: 'uniforme', component: UniformeComponent },
+      { path: 'historial', component: HistorialComponent },
+      { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+    ],
+  },
 ];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
