@@ -6,11 +6,15 @@ import { InputIconModule } from 'primeng/inputicon';
 import { ColorPickerModule } from 'primeng/colorpicker';
 import { DatePickerModule } from "primeng/datepicker";
 import { CardModule } from 'primeng/card';
+import { TableModule } from 'primeng/table';
+import { SelectModule } from 'primeng/select';
+
+
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, IconFieldModule, InputIconModule, CardModule,ColorPickerModule, DatePickerModule],
+  imports: [RouterOutlet, IconFieldModule,SelectModule , InputIconModule, CardModule,TableModule,ColorPickerModule, DatePickerModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

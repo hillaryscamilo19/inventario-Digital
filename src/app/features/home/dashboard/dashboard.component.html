@@ -1,43 +1,99 @@
-<div class="mb-4">
-  <h2 class="text-4xl font-bold">Resumen General</h2>
-</div>
-
-<!--Contenerdor de las cards-->
-<div class="grid gap-4 md:grid-cols-3">
-  <!--Card 1-->
-  <p-card class="shadow-2 border-round-lg bg-blue-50">
-    <div class="flex justify-between items-center">
-      <div>
-        <h3 class="text-sm font-medium text-blue-600">Total Uniformes</h3>
-        <p class="text-3xl font-bold">248</p>
-        <p class="text-xs text-gray-500">+12 este mes</p>
+<div class="dashboard">
+  <!-- Sección Resumen -->
+  <section class="resumen">
+    <h2>Resumen General</h2>
+    <div class="cards">
+      <div class="card azul">
+        <div>
+          <h3>Total Uniformes</h3>
+          <p class="valor">248</p>
+          <p class="detalle">+12 este mes</p>
+        </div>
+        <i class="pi pi-shopping-bag"></i>
       </div>
-      <i class="pi pi-shopping-bag text-blue-500 text-4xl"></i>
-    </div>
-  </p-card>
 
-  <!--Card 2-->
-  <p-card class="shadow-2 border-round-lg bg-green-50">
-    <div class="flex justify-between items-center">
-      <div>
-        <h3 class="text-sm font-medium text-green-600">Medicamentos</h3>
-        <p class="text-3xl font-bold">156</p>
-        <p class="text-xs text-gray-500">+5 esta semana</p>
+      <div class="card verde">
+        <div>
+          <h3>Medicamentos</h3>
+          <p class="valor">156</p>
+          <p class="detalle">+5 esta semana</p>
+        </div>
+        <i class="pi pi-heart"></i>
       </div>
-      <i class="pi pi-shopping-bag text-blue-500 text-4xl"></i>
-    </div>
-  </p-card>
 
-  <!--Card 3-->
-  <p-card class="shadow-2 border-round-lg bg-blue-50">
-    <div class="flex justify-between items-center">
-      <div>
-       <h3 class="text-sm font-medium text-purple-600">Entregas Hoy</h3>
-        <p class="text-3xl font-bold">8</p>
-        <p class="text-xs text-gray-500">+3 vs ayer</p>
+      <div class="card morado">
+        <div>
+          <h3>Entregas Hoy</h3>
+          <p class="valor">8</p>
+          <p class="detalle">+3 vs ayer</p>
+        </div>
+        <i class="pi pi-truck"></i>
       </div>
-      <i class="pi pi-shopping-bag text-blue-500 text-4xl"></i>
     </div>
-  </p-card>
-  
+  </section>
+  <h2>Ultimas Entregas</h2>
+
+  <!-- Sección inferior -->
+  <section class="contenido">
+    <!-- Entregas -->
+    <div class="card-box">
+      <h3>Entregas recientes</h3>
+      <table class="tabla">
+        <thead>
+          <tr>
+            <th>FECHA</th>
+            <th>COLABORADOR</th>
+            <th>AREA</th>
+            <th>MATERIAL</th>
+            <th>CANTIDAD</th>
+          </tr>
+
+
+          
+        </thead>
+        <tbody>
+          <tr>
+            <td>15/06/2023</td>
+            <td>María González</td>
+            <td>Paracetamol</td>
+          </tr>
+          <tr>
+            <td>15/06/2023</td>
+            <td>Juan Pérez</td>
+            <td>Uniforme Talla M</td>
+          </tr>
+        </tbody>
+
+        
+      </table>
+    </div>
+
+    <!-- Stock bajo -->
+    <div class="card-box">
+      <h3>Stock bajo</h3>
+      <div class="alert alert-red">
+        <div>
+          <p class="titulo">Uniforme talla XL</p>
+          <p class="detalle">Quedan 3 unidades</p>
+        </div>
+        <a href="#">Reordenar</a>
+      </div>
+
+      <div class="alert alert-yellow">
+        <div>
+          <p class="titulo">Amoxicilina 500mg</p>
+          <p class="detalle">Quedan 5 unidades</p>
+        </div>
+        <a href="#">Reordenar</a>
+      </div>
+
+      <div class="alert alert-yellow">
+        <div>
+          <p class="titulo">Uniforme talla S</p>
+          <p class="detalle">Quedan 6 unidades</p>
+        </div>
+        <a href="#">Reordenar</a>
+      </div>
+    </div>
+  </section>
 </div>
