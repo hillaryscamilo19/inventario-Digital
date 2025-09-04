@@ -1,12 +1,100 @@
+<div>
+  <h2>MEDICAMENTO</h2>
+  <H2>Gestion de medicamentos en inventario</H2>
+</div>
 <div class="card formulario-registro">
-  <div class="header">
-    <h2>Registro de Medicamentos</h2>
-    <button pButton label="Ver Historial" class="p-button-text p-button-sm"></button>
+  <!--Menu de busqueda y filtro de medicamento-->
+  <div>
+    <h2>Buscar Medicamento</h2>
   </div>
-<p-floatlabel>
-    <input id="username" pInputText />
-    <label for="username">Username</label>
-</p-floatlabel>
- 
+  <div>
+    <label class="input">
+      <svg
+        class="h-[1em] opacity-50"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+      >
+        <g
+          stroke-linejoin="round"
+          stroke-linecap="round"
+          stroke-width="2.5"
+          fill="none"
+          stroke="currentColor"
+        >
+          <circle cx="11" cy="11" r="8"></circle>
+          <path d="m21 21-4.3-4.3"></path>
+        </g>
+      </svg>
+      <input type="search" class="grow" placeholder="Search" />
+    </label>
+  </div>
+
+  <div>
+    <h2>Estado</h2>
+    <div>
+      <select class="select select-neutral">
+        <option disabled selected>Server location</option>
+        <option>North America</option>
+        <option>EU west</option>
+        <option>South East Asia</option>
+      </select>
+    </div>
+  </div>
+  <div>
+    <button class="btn">Limpiar Filtro</button>
+  </div>
 </div>
 
+<div class="card card-medicamentos">
+  <div>
+    <h2>Paracetamol 500mg</h2>
+    <span>
+      <div role="alert" class="alert alert-success">
+        <span>Disponible</span>
+      </div>
+    </span>
+
+    <div>
+      <h2>cajas con 100 tabletas</h2>
+      <h2>Stock actual</h2>
+      <span>125</span>
+    </div>
+
+    
+    <div>
+      <h2>Stock minimo</h2>
+      <span>50</span>
+    </div>
+
+    <div>
+      <button class="btn btn-wide">Registrar Entrega</button>
+    </div>
+  </div>
+</div>
+
+<div class="card card-medicamentos">
+  <div>
+    <h2>Paracetamol 500mg</h2>
+    <span>
+      <div role="alert" class="alert alert-success">
+        <span>Disponible</span>
+      </div>
+    </span>
+
+    <div>
+      <h2>cajas con 100 tabletas</h2>
+      <h2>Stock actual</h2>
+      <span>125</span>
+    </div>
+
+    
+    <div>
+      <h2>Stock minimo</h2>
+      <span>50</span>
+    </div>
+
+    <div>
+      <button class="btn btn-wide">Registrar Entrega</button>
+    </div>
+  </div>
+</div>

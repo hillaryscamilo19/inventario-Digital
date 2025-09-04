@@ -1,17 +1,12 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from "@angular/router";
-import { Toolbar } from "primeng/toolbar";
-import { ToolbarModule } from 'primeng/toolbar';
-import { Button } from "primeng/button";
-
-
+import { RouterOutlet } from '@angular/router';
+import { HeaderComponent } from "../features/home/header/header.component";
 @Component({
   selector: 'app-layout',
-  imports: [RouterOutlet, Toolbar, ToolbarModule, Button],
+  imports: [RouterOutlet, HeaderComponent],
   templateUrl: './layout.component.html',
-  styleUrl: './layout.component.css'
+  styleUrl: './layout.component.css',
 })
 export class LayoutComponent {
-items: any;
-
+  items: any;
 }

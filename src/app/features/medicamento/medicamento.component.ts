@@ -1,11 +1,9 @@
 import { Component } from '@angular/core';
 
-import { SelectModule } from "primeng/select";
-import { FloatLabel } from "primeng/floatlabel";
 
 @Component({
   selector: 'app-medicamento',
-  imports: [SelectModule, FloatLabel],
+  imports: [],
   templateUrl: './medicamento.component.html',
   styleUrl: './medicamento.component.css'
 })

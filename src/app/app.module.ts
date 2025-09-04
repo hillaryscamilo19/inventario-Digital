@@ -10,7 +10,7 @@ import { ReportesComponent } from './features/reportes/components/reportes.compo
 import { InventarioComponent } from './features/inventario/components/inventario.component';
 import { RegistroComponent } from './features/registro/components/registro.component';
 import { HttpClientModule } from '@angular/common/http';
-import { DropdownModule } from 'primeng/dropdown';
+
 @NgModule({
   declarations: [
     // 🚨 Aquí NO va AppComponent porque es standalone
@@ -21,9 +21,7 @@ import { DropdownModule } from 'primeng/dropdown';
     AppComponent, // ✅ se importa en lugar de declararlo
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule,
-    DropdownModule
-    
+    HttpClientModule,    
   ],
   providers: [],
   bootstrap: [] // ✅ sigue siendo bootstrap
