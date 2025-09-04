@@ -10,7 +10,7 @@ import { ReportesComponent } from './features/reportes/components/reportes.compo
 import { InventarioComponent } from './features/inventario/components/inventario.component';
 import { RegistroComponent } from './features/registro/components/registro.component';
 import { HttpClientModule } from '@angular/common/http';
-
+import { DropdownModule } from 'primeng/dropdown';
 @NgModule({
   declarations: [
     // 🚨 Aquí NO va AppComponent porque es standalone
@@ -22,6 +22,8 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    DropdownModule
+    
   ],
   providers: [],
   bootstrap: [] // ✅ sigue siendo bootstrap
