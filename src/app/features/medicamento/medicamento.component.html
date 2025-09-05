@@ -1,100 +1,121 @@
-<div>
-  <h2>MEDICAMENTO</h2>
-  <H2>Gestion de medicamentos en inventario</H2>
-</div>
-<div class="card formulario-registro">
-  <!--Menu de busqueda y filtro de medicamento-->
+<div class="contenerdor grid grid-cols-1 md:grid-cols-3 gap-3">
+  <!-- Columna izquierda -->
   <div>
-    <h2>Buscar Medicamento</h2>
-  </div>
-  <div>
-    <label class="input">
-      <svg
-        class="h-[1em] opacity-50"
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-      >
-        <g
-          stroke-linejoin="round"
-          stroke-linecap="round"
-          stroke-width="2.5"
-          fill="none"
-          stroke="currentColor"
-        >
-          <circle cx="11" cy="11" r="8"></circle>
-          <path d="m21 21-4.3-4.3"></path>
-        </g>
-      </svg>
-      <input type="search" class="grow" placeholder="Search" />
-    </label>
-  </div>
+    <h2 class="text-xl font-bold">MEDICAMENTO</h2>
+    <h2 class="text-lg mb-4">Gestión de medicamentos en inventario</h2>
 
-  <div>
-    <h2>Estado</h2>
-    <div>
-      <select class="select select-neutral">
-        <option disabled selected>Server location</option>
-        <option>North America</option>
-        <option>EU west</option>
-        <option>South East Asia</option>
-      </select>
-    </div>
-  </div>
-  <div>
-    <button class="btn">Limpiar Filtro</button>
-  </div>
-</div>
-
-<div class="card card-medicamentos">
-  <div>
-    <h2>Paracetamol 500mg</h2>
-    <span>
-      <div role="alert" class="alert alert-success">
-        <span>Disponible</span>
+    <div class="card formulario-registro p-4 shadow-lg">
+      <!-- Menú de búsqueda -->
+      <div class="mb-4">
+        <h2 class="font-semibold mb-2">Buscar Medicamento</h2>
+        <label class="input flex items-center gap-2">
+          <svg
+            class="h-5 w-5 opacity-50"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+          >
+            <g
+              stroke-linejoin="round"
+              stroke-linecap="round"
+              stroke-width="2.5"
+              fill="none"
+              stroke="currentColor"
+            >
+              <circle cx="11" cy="11" r="8"></circle>
+              <path d="m21 21-4.3-4.3"></path>
+            </g>
+          </svg>
+          <input type="search" class="grow" placeholder="Search" />
+        </label>
       </div>
-    </span>
 
-    <div>
-      <h2>cajas con 100 tabletas</h2>
-      <h2>Stock actual</h2>
-      <span>125</span>
-    </div>
+      <!-- Estado -->
+      <div class="mb-4">
+        <h2 class="font-semibold mb-2">Estado</h2>
+        <select class="select select-neutral w-full">
+          <option disabled selected>Seleccione estado</option>
+          <option>Disponible</option>
+          <option>Agotado</option>
+          <option>Próximo a vencer</option>
+        </select>
+      </div>
 
-    
-    <div>
-      <h2>Stock minimo</h2>
-      <span>50</span>
-    </div>
-
-    <div>
-      <button class="btn btn-wide">Registrar Entrega</button>
+      <div>
+        <button class="btn btn-neutral w-full">Limpiar Filtro</button>
+      </div>
     </div>
   </div>
-</div>
 
-<div class="card card-medicamentos">
-  <div>
-    <h2>Paracetamol 500mg</h2>
-    <span>
-      <div role="alert" class="alert alert-success">
-        <span>Disponible</span>
+  <!-- Columna derecha -->
+  <div class="Card-container grid gap-2">
+    <!-- Card medicamento -->
+    <div class="card card-medicamentos p-4 shadow-md">
+      <div>
+        <div class="flex justify-between items-center">
+          <h2 class="font-bold">Paracetamol 500mg</h2>
+          <span class="badge badge-success">Disponible</span>
+        </div>
+        <div class="mt-2">
+          <h2>cajas con 100 tabletas</h2>
+          <p>Stock actual: <span class="font-bold">125</span></p>
+          <p>Stock mínimo: <span class="font-bold">50</span></p>
+        </div>
+        <div class="mt-3">
+          <button class="btn btn-wide btn-primary">Registrar Entrega</button>
+        </div>
       </div>
-    </span>
-
-    <div>
-      <h2>cajas con 100 tabletas</h2>
-      <h2>Stock actual</h2>
-      <span>125</span>
     </div>
 
-    
-    <div>
-      <h2>Stock minimo</h2>
-      <span>50</span>
+    <!-- Puedes repetir más cards aquí -->
+    <div class="card card-medicamentos p-4 shadow-md">
+      <div>
+        <div class="flex justify-between items-center">
+          <h2 class="font-bold">Ibuprofeno 400mg</h2>
+          <span class="badge badge-success">Disponible</span>
+        </div>
+        <div class="mt-2">
+          <h2>cajas con 50 tabletas</h2>
+          <p>Stock actual: <span class="font-bold">80</span></p>
+          <p>Stock mínimo: <span class="font-bold">30</span></p>
+        </div>
+        <div class="mt-3">
+          <button class="btn btn-wide btn-primary">Registrar Entrega</button>
+        </div>
+      </div>
     </div>
 
-    <div>
-      <button class="btn btn-wide">Registrar Entrega</button>
+    <div class="card card-medicamentos p-4 shadow-md">
+      <div>
+        <div class="flex justify-between items-center">
+          <h2 class="font-bold">Ibuprofeno 400mg</h2>
+          <span class="badge badge-success">Disponible</span>
+        </div>
+        <div class="mt-2">
+          <h2>cajas con 50 tabletas</h2>
+          <p>Stock actual: <span class="font-bold">80</span></p>
+          <p>Stock mínimo: <span class="font-bold">30</span></p>
+        </div>
+        <div class="mt-3">
+          <button class="btn btn-wide btn-primary">Registrar Entrega</button>
+        </div>
+      </div>
+    </div>
+
+          <div class="card card-medicamentos p-4 shadow-md">
+      <div>
+        <div class="flex justify-between items-center">
+          <h2 class="font-bold">Ibuprofeno 400mg</h2>
+          <span class="badge badge-success">Disponible</span>
+        </div>
+        <div class="mt-2">
+          <h2>cajas con 50 tabletas</h2>
+          <p>Stock actual: <span class="font-bold">80</span></p>
+          <p>Stock mínimo: <span class="font-bold">30</span></p>
+        </div>
+        <div class="mt-3">
+          <button class="btn btn-wide btn-primary">Registrar Entrega</button>
+        </div>
+      </div>
     </div>
   </div>
 </div>

@@ -1,0 +1,97 @@
+<div class="contenerdor grid grid-cols-1">
+  <!-- Columna izquierda -->
+  <div>
+    <h2 class="text-xl font-bold">INVENTARIO</h2>
+    <h2 class="text-lg mb-4">
+      Gestión Y Control de stock de medicamentos y uniforme
+    </h2>
+
+    <div class="card formulario-registro p-4 shadow-lg">
+      <!-- Menú de búsqueda -->
+      <div class="mb-4">
+        <h2 class="font-semibold mb-2">Buscar</h2>
+        <label class="input flex items-center gap-2">
+          <svg
+            class="h-5 w-5 opacity-50"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+          >
+            <g
+              stroke-linejoin="round"
+              stroke-linecap="round"
+              stroke-width="2.5"
+              fill="none"
+              stroke="currentColor"
+            >
+              <circle cx="11" cy="11" r="8"></circle>
+              <path d="m21 21-4.3-4.3"></path>
+            </g>
+          </svg>
+          <input type="search" class="grow" placeholder="Search" />
+        </label>
+      </div>
+
+      <!-- Tipo de articulo -->
+      <div class="mb-4">
+        <h2 class="font-semibold mb-2">Tipo de articulo</h2>
+        <select class="select select-neutral w-full">
+          <option disabled selected>Seleccione estado</option>
+          <option>Disponible</option>
+          <option>Agotado</option>
+          <option>Próximo a vencer</option>
+        </select>
+      </div>
+
+      <!-- Estado -->
+      <div class="mb-4">
+        <h2 class="font-semibold mb-2">Estado</h2>
+        <select class="select select-neutral w-full">
+          <option disabled selected>Seleccione estado</option>
+          <option>Disponible</option>
+          <option>Agotado</option>
+          <option>Próximo a vencer</option>
+        </select>
+      </div>
+
+      <div>
+        <button class="btn btn-neutral w-full">Limpiar Filtro</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Columna derecha -->
+  <div class="Card-container grid gap-2">
+    <div class="overflow-x-auto">
+      <table class="table table-xs">
+        <thead>
+          <tr>
+            <th>Articulos</th>
+            <th>Tipo</th>
+            <th>Descripcion</th>
+            <th>Stock</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>Paracetamol 500mg</th>
+            <td>Medicamento</td>
+            <td>Caja de 10 tabletas</td>
+            <td>100</td>
+            <td>Disponible</td>
+            <td>Editar</td>
+          </tr>
+          <tr>
+            <th>Uniforme Talla M</th>
+            <td>Uniforme</td>
+            <td>Camisa de SSV</td>
+            <td>68</td>
+            <td>Disponible</td>
+            <td>Editar</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
