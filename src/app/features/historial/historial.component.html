@@ -1,1 +1,130 @@
-<p>historial works!</p>
+<div class="contenerdor grid grid-cols-1">
+  <!-- Columna izquierda -->
+  <div>
+    <div class="contenerdor-titulo-principal">
+      <h2 class="text-xl font-bold">Historial de Entrega</h2>
+      <button class="btn btn-success">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="size-6"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M9 8.25H7.5a2.25 2.25 0 0 0-2.25 2.25v9a2.25 2.25 0 0 0 2.25 2.25h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25H15M9 12l3 3m0 0 3-3m-3 3V2.25"
+          />
+        </svg>
+        Exportar Excel
+      </button>
+    </div>
+
+    <div class="card formulario-registro p-4 shadow-lg">
+
+      <!-- Tipo de articulo -->
+      <div class="mb-4">
+        <h2 class="font-semibold mb-2">Todos los Articulos</h2>
+        <select class="select select-neutral w-full">
+          <option disabled selected>Seleccione estado</option>
+          <option>Disponible</option>
+          <option>Agotado</option>
+          <option>Próximo a vencer</option>
+        </select>
+      </div>
+
+      <!-- Estado -->
+      <div class="mb-4">
+        <h2 class="font-semibold mb-2">Periodo</h2>
+        <select class="select select-neutral w-full">
+          <option disabled selected>Seleccione estado</option>
+          <option>Disponible</option>
+          <option>Agotado</option>
+          <option>Próximo a vencer</option>
+        </select>
+      </div>
+
+      <!-- Menú de búsqueda -->
+      <div class="mb-4">
+        <h2 class="font-semibold mb-2">Buscar</h2>
+        <label class="input flex items-center gap-2">
+          <svg
+            class="h-5 w-5 opacity-50"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+          >
+            <g
+              stroke-linejoin="round"
+              stroke-linecap="round"
+              stroke-width="2.5"
+              fill="none"
+              stroke="currentColor"
+            >
+              <circle cx="11" cy="11" r="8"></circle>
+              <path d="m21 21-4.3-4.3"></path>
+            </g>
+          </svg>
+          <input type="search" class="grow" placeholder="Search" />
+        </label>
+      </div>
+
+      <div>
+        <button class="btn btn-neutral w-full">Limpiar Filtro</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Columna derecha -->
+  <div class="">
+    <div class="overflow-x-auto">
+      <div class="title-table">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="size-6"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+          />
+        </svg>
+
+        <div>Historial de Entregas</div>
+      </div>
+
+      <table class="table table-xs">
+        <thead>
+          <tr>
+            <th>FECHA</th>
+            <th>COLABORADOR</th>
+            <th>AREA</th>
+            <th>ARTICULO</th>
+            <th>CANTIDAD</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>12-03-2025</th>
+            <td>Hillarys camilo</td>
+            <td>TI</td>
+            <td>Aceptaminofen</td>
+            <td>1</td>
+          </tr>
+          <tr>
+            <th>25-06-2025</th>
+            <td>Angel rosario</td>
+            <td>Laboratorio</td>
+            <td>Uniforme</td>
+            <td>3</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

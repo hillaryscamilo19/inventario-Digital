@@ -60,8 +60,27 @@
   </div>
 
   <!-- Columna derecha -->
-  <div class="Card-container grid gap-2">
+  <div class="">
     <div class="overflow-x-auto">
+      <div class="title-table">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="size-6"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="m21 7.5-9-5.25L3 7.5m18 0-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9"
+          />
+        </svg>
+
+        <div>Lista de Inventario</div>
+      </div>
+
       <table class="table table-xs">
         <thead>
           <tr>
@@ -79,16 +98,35 @@
             <td>Medicamento</td>
             <td>Caja de 10 tabletas</td>
             <td>100</td>
-            <td>Disponible</td>
-            <td>Editar</td>
+            <td><div class="badge badge-soft badge-success">Disponible</div></td>
+            <td><button type="submit" class="btn btn btn-sm">Editar</button></td>
           </tr>
           <tr>
             <th>Uniforme Talla M</th>
             <td>Uniforme</td>
             <td>Camisa de SSV</td>
             <td>68</td>
-            <td>Disponible</td>
-            <td>Editar</td>
+            <td><div class="badge badge-soft badge-error">Agotado</div></td>
+           <td><button type="submit" class="btn btn btn-sm">Editar</button></td>
+          </tr>
+        </tbody>
+
+                <tbody>
+          <tr>
+            <th>Acetaminofen 500mg</th>
+            <td>Medicamento</td>
+            <td>Caja de 10 tabletas</td>
+            <td>100</td>
+            <td><div class="badge badge-soft badge-warning">Por agotar</div></td>
+            <td><button type="submit" class="btn btn btn-sm">Editar</button></td>
+          </tr>
+          <tr>
+            <th>Uniforme Talla M</th>
+            <td>Uniforme</td>
+            <td>Camisa de SSV</td>
+            <td>68</td>
+            <td><div class="badge badge-soft badge-success">Disponible</div></td>
+           <td><button type="submit" class="btn btn btn-sm">Editar</button></td>
           </tr>
         </tbody>
       </table>

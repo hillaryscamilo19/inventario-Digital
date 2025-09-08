@@ -8,5 +8,10 @@ import { HeaderComponent } from "../features/home/header/header.component";
   styleUrl: './layout.component.css',
 })
 export class LayoutComponent {
+    isSidebarOpen = false;
+
+  toggleSidebar() {
+    this.isSidebarOpen = !this.isSidebarOpen;
+  }
   items: any;
 }

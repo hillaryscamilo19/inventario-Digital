@@ -141,6 +141,73 @@
 
   .Card-container {
     display: flex;
+    padding: 1.5rem;
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin: 1rem auto;
+    min-width: 100%;
+    flex-direction: row;
+    align-content: space-between;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .card-medicamentos {
+    padding: 1.5rem;
+    width: 63%;
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin: 0; /* ✅ evita desajustes */
+  }
+
+
+  .title-table{
+    display: flex;
+
+  }
+}
+@media (min-width: 768px) {
+  .contenido {
+    grid-template-columns: 1fr 1fr; /* dos columnas en tablets */
+  }
+
+    .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contenerdor {
+    padding: 1rem;
+    display: flex;
+    border-radius: 17px;
+    margin-left: -17%;
+    max-width: 124%;
+    height: 103%;
+    flex-direction: column;
+    gap: 2rem;
+    background: #feffff;
+  }
+
+  .formulario-registro {
+    display: flex;
+    padding: 1.5rem;
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin: 1rem auto;
+    min-width: 100%;
+    flex-direction: row;
+    align-content: space-between;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .Card-container {
+    display: flex;
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     flex-wrap: wrap; /* ✅ permite que las cards bajen */
     gap: 1rem; /* ✅ espacio entre cards */
     justify-content: flex-start; /* alineación más natural */
@@ -154,10 +221,11 @@
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     margin: 0; /* ✅ evita desajustes */
   }
-}
-@media (min-width: 768px) {
-  .contenido {
-    grid-template-columns: 1fr 1fr; /* dos columnas en tablets */
+
+
+  .title-table{
+    
+
   }
 }
 
@@ -165,5 +233,60 @@
   .dashboard {
     max-width: 1200px;
     margin: auto; /* centrar en pantallas grandes */
+  }
+
+    .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contenerdor {
+    padding: 1rem;
+    display: flex;
+    border-radius: 17px;
+    margin-left: -17%;
+    max-width: 124%;
+    height: 103%;
+    flex-direction: column;
+    gap: 2rem;
+    background: #feffff;
+  }
+
+  .formulario-registro {
+    display: flex;
+    padding: 1.5rem;
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin: 1rem auto;
+    min-width: 100%;
+    flex-direction: row;
+    align-content: space-between;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .Card-container {
+    display: flex;
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    flex-wrap: wrap; /* ✅ permite que las cards bajen */
+    gap: 1rem; /* ✅ espacio entre cards */
+    justify-content: flex-start; /* alineación más natural */
+  }
+
+  .card-medicamentos {
+    padding: 1.5rem;
+    width: 63%;
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin: 0; /* ✅ evita desajustes */
+  }
+
+
+  .title-table{
+    
+
   }
 }

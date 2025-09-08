@@ -1,1 +1,136 @@
 <p>registro works!</p>
+<div class="contenerdor grid grid-cols-1">
+  <!-- Columna izquierda -->
+  <div>
+    <h2 class="text-xl font-bold">INVENTARIO</h2>
+    <h2 class="text-lg mb-4">
+      Gestión Y Control de stock de medicamentos y uniforme
+    </h2>
+
+    <div class="card formulario-registro p-4 shadow-lg">
+      <!-- Menú de búsqueda -->
+      <div class="mb-4">
+        <h2 class="font-semibold mb-2">Buscar</h2>
+        <label class="input flex items-center gap-2">
+          <svg
+            class="h-5 w-5 opacity-50"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+          >
+            <g
+              stroke-linejoin="round"
+              stroke-linecap="round"
+              stroke-width="2.5"
+              fill="none"
+              stroke="currentColor"
+            >
+              <circle cx="11" cy="11" r="8"></circle>
+              <path d="m21 21-4.3-4.3"></path>
+            </g>
+          </svg>
+          <input type="search" class="grow" placeholder="Search" />
+        </label>
+      </div>
+
+      <!-- Tipo de articulo -->
+      <div class="mb-4">
+        <h2 class="font-semibold mb-2">Tipo de articulo</h2>
+        <select class="select select-neutral w-full">
+          <option disabled selected>Seleccione estado</option>
+          <option>Disponible</option>
+          <option>Agotado</option>
+          <option>Próximo a vencer</option>
+        </select>
+      </div>
+
+      <!-- Estado -->
+      <div class="mb-4">
+        <h2 class="font-semibold mb-2">Estado</h2>
+        <select class="select select-neutral w-full">
+          <option disabled selected>Seleccione estado</option>
+          <option>Disponible</option>
+          <option>Agotado</option>
+          <option>Próximo a vencer</option>
+        </select>
+      </div>
+
+      <div>
+        <button class="btn btn-neutral w-full">Limpiar Filtro</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Columna derecha -->
+  <div class="">
+    <div class="overflow-x-auto">
+      <div class="title-table">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="size-6"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="m21 7.5-9-5.25L3 7.5m18 0-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9"
+          />
+        </svg>
+
+        <div>Lista de Inventario</div>
+      </div>
+
+      <table class="table table-xs">
+        <thead>
+          <tr>
+            <th>Articulos</th>
+            <th>Tipo</th>
+            <th>Descripcion</th>
+            <th>Stock</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>Paracetamol 500mg</th>
+            <td>Medicamento</td>
+            <td>Caja de 10 tabletas</td>
+            <td>100</td>
+            <td><div class="badge badge-soft badge-success">Disponible</div></td>
+            <td><button type="submit" class="btn btn btn-sm">Editar</button></td>
+          </tr>
+          <tr>
+            <th>Uniforme Talla M</th>
+            <td>Uniforme</td>
+            <td>Camisa de SSV</td>
+            <td>68</td>
+            <td><div class="badge badge-soft badge-error">Agotado</div></td>
+           <td><button type="submit" class="btn btn btn-sm">Editar</button></td>
+          </tr>
+        </tbody>
+
+                <tbody>
+          <tr>
+            <th>Acetaminofen 500mg</th>
+            <td>Medicamento</td>
+            <td>Caja de 10 tabletas</td>
+            <td>100</td>
+            <td><div class="badge badge-soft badge-warning">Por agotar</div></td>
+            <td><button type="submit" class="btn btn btn-sm">Editar</button></td>
+          </tr>
+          <tr>
+            <th>Uniforme Talla M</th>
+            <td>Uniforme</td>
+            <td>Camisa de SSV</td>
+            <td>68</td>
+            <td><div class="badge badge-soft badge-success">Disponible</div></td>
+           <td><button type="submit" class="btn btn btn-sm">Editar</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

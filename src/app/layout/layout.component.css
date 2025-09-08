@@ -3,7 +3,7 @@
 }
 
 .di-sidebar {
-  background-color: rgb(255 255 255);
+  background-color: #fff;
   display: flex;
   margin-top: 7%;
   min-height: 84%;
@@ -21,7 +21,7 @@
 }
 
 .di-layaut {
-  background-color: #ffffff;
+  background-color: #fff;
   border-radius: 25px;
   margin-top: 21px;
   margin-left: 20px;
@@ -161,171 +161,33 @@
 }
 
 /* ===== Media Queries ===== */
-@media (min-width: 768px) {
-  .contenido {
-    grid-template-columns: 1fr 1fr; /* dos columnas en tablets */
-  }
-
-  .text-color {
-    color: rgb(0, 0, 0);
-  }
-
-  .di-sidebar {
-    background-color: rgb(255 255 255);
-    display: flex;
-    margin-top: 7%;
-    min-height: 84%;
-    max-width: 67%;
-    border-radius: 25px;
-    text-align: center;
-    flex-direction: column;
-    align-content: flex-start;
-    align-items: flex-start;
-  }
-
-  .Title-sidebar {
-    font-size: 21px;
-    margin-left: 16px;
-  }
-
-  .di-layaut {
-    background-color: #ffffff;
-    border-radius: 25px;
-    margin-top: 21px;
-    margin-left: 20px;
-    max-width: 69%;
-    height: 85%;
-  }
-
-  .header-container {
-    height: 100%;
-    width: 100%;
-    background-color: burlywood;
-  }
-
-  /* ===== Estilos generales ===== */
-  .dashboard {
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    background: #f9fafb;
-  }
-
-  .resumen h2 {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
-  }
-
-  /* Cards de resumen */
-  .cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 1rem;
-  }
-
-  .card {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-    border-radius: 12px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  }
-
-  .card h3 {
-    font-size: 0.9rem;
-    margin: 0;
-  }
-
-  .card .valor {
-    font-size: 2rem;
-    font-weight: bold;
-    margin: 0.2rem 0;
-  }
-
-  .card .detalle {
-    font-size: 0.8rem;
-    color: #555;
-  }
-
-  .card i {
-    font-size: 2rem;
-  }
-
-  /* Colores de cards */
-  .card.azul {
-    background: #e0f2fe;
-    color: #0369a1;
-  }
-  .card.verde {
-    background: #dcfce7;
-    color: #15803d;
-  }
-  .card.morado {
-    background: #f3e8ff;
-    color: #7e22ce;
-  }
-
-  /* ===== Sección inferior ===== */
-  .contenido {
-    display: grid;
+@media (max-width: 768px) {
+  .layout-container {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
   }
 
-  .card-box {
+  .menu-btn {
+    display: block; /* visible solo en móvil */
+  }
+
+  .sidebar {
+    position: fixed;
+    top: 60px; /* altura del header */
+    left: 0;
+    height: 100%;
+    width: 220px;
     background: #fff;
-    border-radius: 10px;
-    padding: 1rem;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    transform: translateX(-100%);
+    z-index: 1000;
   }
 
-  .tabla {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 0.5rem;
+  .sidebar.open {
+    transform: translateX(0);
   }
 
-  .tabla th,
-  .tabla td {
-    padding: 0.5rem;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-  }
-
-  .alert {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.75rem;
-    border-radius: 8px;
-    margin-top: 0.75rem;
-  }
-
-  .alert-red {
-    background: #ffe5e5;
-    color: #b91c1c;
-  }
-  .alert-yellow {
-    background: #fff7d1;
-    color: #b45309;
-  }
-
-  .alert .titulo {
-    font-weight: bold;
-    margin: 0;
-  }
-  .alert .detalle {
-    font-size: 0.85rem;
-    color: #555;
-    margin: 0;
-  }
-  .alert a {
-    color: #2563eb;
-    font-weight: 600;
-    text-decoration: none;
+  .main-content {
+    margin: 1rem;
   }
 }
 
@@ -336,167 +198,62 @@
   .contenido {
     grid-template-columns: 2fr 1fr; /* tabla más grande que stock */
   }
-
-  .text-color {
-    color: rgb(0, 0, 0);
-  }
-
-  .di-sidebar {
-    background-color: rgb(255 255 255);
-    display: flex;
-    margin-top: 7%;
-    min-height: 84%;
-    max-width: 67%;
-    border-radius: 25px;
-    text-align: center;
-    flex-direction: column;
-    align-content: flex-start;
-    align-items: flex-start;
-  }
-
   .Title-sidebar {
-    font-family: inherit;
-    font-size: 12px;
+    font-size: 12px; /* sobrescribe tamaño solo en desktop */
   }
-
   .di-layaut {
-    background-color: #ffffff;
-    border-radius: 25px;
-    margin-top: 21px;
     margin-left: -92px;
     max-width: 85%;
-    height: 85%;
   }
 
-  .header-container {
-    height: 100%;
-    width: 100%;
-    background-color: burlywood;
-  }
-
-  /* ===== Estilos generales ===== */
-  .dashboard {
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
+  /* Contenedor principal */
+  .layout-container {
+    display: grid;
+    grid-template-columns: 250px 1fr; /* Sidebar fijo + contenido */
+    min-height: 100vh;
     background: #f9fafb;
   }
 
-  .resumen h2 {
-    font-size: 1.5rem;
+  /* Sidebar */
+  .sidebar {
+    background: #ffffff;
+    border-right: 1px solid #e5e7eb;
+    padding: 1rem;
+  }
+
+  .sidebar-title {
+    font-size: 1.2rem;
     font-weight: bold;
     margin-bottom: 1rem;
   }
 
-  /* Cards de resumen */
-  .cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 1rem;
-  }
-
-  .card {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-    border-radius: 12px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  }
-
-  .card h3 {
-    font-size: 0.9rem;
+  /* Links */
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
     margin: 0;
   }
 
-  .card .valor {
-    font-size: 2rem;
-    font-weight: bold;
-    margin: 0.2rem 0;
+  .sidebar li {
+    margin: 0.5rem 0;
   }
 
-  .card .detalle {
-    font-size: 0.8rem;
-    color: #555;
-  }
-
-  .card i {
-    font-size: 2rem;
-  }
-
-  /* Colores de cards */
-  .card.azul {
-    background: #e0f2fe;
-    color: #0369a1;
-  }
-  .card.verde {
-    background: #dcfce7;
-    color: #15803d;
-  }
-  .card.morado {
-    background: #f3e8ff;
-    color: #7e22ce;
-  }
-
-  /* ===== Sección inferior ===== */
-  .contenido {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-
-  .card-box {
-    background: #fff;
-    border-radius: 10px;
-    padding: 1rem;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  }
-
-  .tabla {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 0.5rem;
-  }
-
-  .tabla th,
-  .tabla td {
-    padding: 0.5rem;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-  }
-
-  .alert {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.75rem;
-    border-radius: 8px;
-    margin-top: 0.75rem;
-  }
-
-  .alert-red {
-    background: #ffe5e5;
-    color: #b91c1c;
-  }
-  .alert-yellow {
-    background: #fff7d1;
-    color: #b45309;
-  }
-
-  .alert .titulo {
-    font-weight: bold;
-    margin: 0;
-  }
-  .alert .detalle {
-    font-size: 0.85rem;
-    color: #555;
-    margin: 0;
-  }
-  .alert a {
-    color: #2563eb;
-    font-weight: 600;
+  .sidebar a {
+    color: #111827;
     text-decoration: none;
+    font-weight: 500;
+  }
+
+  .sidebar a:hover {
+    color: #2563eb;
+  }
+
+  /* Contenido dinámico */
+  .main-content {
+    padding: 1rem;
+    background: #f3f4f6;
+    border-radius: 10px;
+    margin: 1rem;
   }
 }
 
@@ -505,166 +262,77 @@
     max-width: 1200px;
     margin: auto; /* centrar en pantallas grandes */
   }
-
-  .text-color {
-    color: rgb(0, 0, 0);
-  }
-
-  .di-sidebar {
-    background-color: rgb(255 255 255);
-    display: flex;
-    margin-top: 7%;
-    min-height: 84%;
-    max-width: 67%;
-    border-radius: 25px;
-    text-align: center;
-    flex-direction: column;
-    align-content: flex-start;
-    align-items: flex-start;
-  }
-
-  .Title-sidebar {
-    font-size: 21px;
-    margin-left: 16px;
-  }
-
-  .di-layaut {
-    background-color: #ffffff;
-    border-radius: 25px;
-    margin-top: 21px;
-    margin-left: 20px;
-    max-width: 69%;
-    height: 85%;
-  }
-
-  .header-container {
-    height: 100%;
-    width: 100%;
-    background-color: burlywood;
-  }
-
-  /* ===== Estilos generales ===== */
-  .dashboard {
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
+  /* Contenedor principal */
+  .layout-container {
+    display: grid;
+    grid-template-columns: 250px 1fr; /* Sidebar fijo + contenido */
+    min-height: 100vh;
     background: #f9fafb;
   }
 
-  .resumen h2 {
+  /* Header */
+  .header {
+    grid-column: span 2;
+    display: flex;
+    align-items: center;
+    background: #2563eb;
+    color: white;
+    padding: 0.75rem 1rem;
+  }
+
+  .menu-btn {
+    background: transparent;
+    border: none;
     font-size: 1.5rem;
+    cursor: pointer;
+    color: white;
+    display: none; /* solo visible en móvil */
+  }
+
+  .header-title {
+    margin-left: 1rem;
+    font-size: 1.2rem;
+  }
+
+  /* Sidebar */
+  .sidebar {
+    background: #ffffff;
+    border-right: 1px solid #e5e7eb;
+    padding: 1rem;
+  }
+
+  .sidebar-title {
+    font-size: 1.1rem;
     font-weight: bold;
     margin-bottom: 1rem;
   }
 
-  /* Cards de resumen */
-  .cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 1rem;
-  }
-
-  .card {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-    border-radius: 12px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  }
-
-  .card h3 {
-    font-size: 0.9rem;
+  /* Links */
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
     margin: 0;
   }
 
-  .card .valor {
-    font-size: 2rem;
-    font-weight: bold;
-    margin: 0.2rem 0;
+  .sidebar li {
+    margin: 0.5rem 0;
   }
 
-  .card .detalle {
-    font-size: 0.8rem;
-    color: #555;
-  }
-
-  .card i {
-    font-size: 2rem;
-  }
-
-  /* Colores de cards */
-  .card.azul {
-    background: #e0f2fe;
-    color: #0369a1;
-  }
-  .card.verde {
-    background: #dcfce7;
-    color: #15803d;
-  }
-  .card.morado {
-    background: #f3e8ff;
-    color: #7e22ce;
-  }
-
-  /* ===== Sección inferior ===== */
-  .contenido {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-
-  .card-box {
-    background: #fff;
-    border-radius: 10px;
-    padding: 1rem;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  }
-
-  .tabla {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 0.5rem;
-  }
-
-  .tabla th,
-  .tabla td {
-    padding: 0.5rem;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-  }
-
-  .alert {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.75rem;
-    border-radius: 8px;
-    margin-top: 0.75rem;
-  }
-
-  .alert-red {
-    background: #ffe5e5;
-    color: #b91c1c;
-  }
-  .alert-yellow {
-    background: #fff7d1;
-    color: #b45309;
-  }
-
-  .alert .titulo {
-    font-weight: bold;
-    margin: 0;
-  }
-  .alert .detalle {
-    font-size: 0.85rem;
-    color: #555;
-    margin: 0;
-  }
-  .alert a {
-    color: #2563eb;
-    font-weight: 600;
+  .sidebar a {
+    color: #111827;
     text-decoration: none;
+    font-weight: 500;
+  }
+
+  .sidebar a:hover {
+    color: #2563eb;
+  }
+
+  /* Contenido dinámico */
+  .main-content {
+    padding: 1rem;
+    background: #f3f4f6;
+    border-radius: 10px;
+    margin: 1rem;
   }
 }
