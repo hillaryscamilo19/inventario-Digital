@@ -14,10 +14,19 @@
   align-content: flex-start;
   align-items: flex-start;
 }
-
+.sidebar {
+  background: #fff;
+  border-right: 1px solid #e5e7eb;
+  padding: 1rem;
+  transition: transform 0.3s ease;
+}
 .Title-sidebar {
   font-size: 21px;
   margin-left: 16px;
+}
+
+.menuAmbu {
+  color: #000000;
 }
 
 .di-layaut {
@@ -30,9 +39,17 @@
 }
 
 .header-container {
-  height: 100%;
-  width: 100%;
-  background-color: burlywood;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: burlywood; /* luego lo ajustas */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+  z-index: 1100; /* más que el sidebar */
 }
 
 /* ===== Estilos generales ===== */
@@ -44,6 +61,35 @@
   background: #f9fafb;
 }
 
+/* Header fijo */
+.Menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+  z-index: 1100; /* encima del sidebar */
+}
+
+
+.menu-TExt{
+  display: flex;
+  align-items: center;
+}
+/* Botón hamburguesa */
+.menu-btn {
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #000; /* cambia a blanco si header es oscuro */
+  display: none; /* oculto en desktop */
+}
 .resumen h2 {
   font-size: 1.5rem;
   font-weight: bold;
@@ -80,6 +126,10 @@
 .card .detalle {
   font-size: 0.8rem;
   color: #555;
+}
+
+.layout-container {
+  display: block;
 }
 
 .card i {
@@ -170,14 +220,23 @@
     display: block; /* visible solo en móvil */
   }
 
+  .layout-container {
+    display: block;
+  }
+
+   .menu-btn {
+    display: block;
+  }
+  .menuAmbu {
+    color: #000000;
+  }
+
   .sidebar {
     position: fixed;
-    top: 60px; /* altura del header */
+    top: 60px;
     left: 0;
     height: 100%;
     width: 220px;
-    background: #fff;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
     transform: translateX(-100%);
     z-index: 1000;
   }
@@ -187,7 +246,24 @@
   }
 
   .main-content {
-    margin: 1rem;
+    padding: 1rem;
+    margin-top: 70px; /* espacio para el header fijo */
+    background: #f3f4f6;
+    border-radius: 10px;
+  }
+
+  .header-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: burlywood; /* luego lo ajustas */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem;
+    z-index: 1100; /* más que el sidebar */
   }
 }
 
@@ -198,6 +274,18 @@
   .contenido {
     grid-template-columns: 2fr 1fr; /* tabla más grande que stock */
   }
+
+  .Menu {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .menuAmbu {
+    background-color: #d1d7e2;
+  }
+
   .Title-sidebar {
     font-size: 12px; /* sobrescribe tamaño solo en desktop */
   }
@@ -270,6 +358,10 @@
     background: #f9fafb;
   }
 
+  .menuAmbu {
+    background-color: #0046c7;
+  }
+
   /* Header */
   .header {
     grid-column: span 2;
@@ -278,6 +370,13 @@
     background: #2563eb;
     color: white;
     padding: 0.75rem 1rem;
+  }
+
+  .Menu {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
   }
 
   .menu-btn {

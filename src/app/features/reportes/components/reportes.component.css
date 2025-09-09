@@ -1,0 +1,149 @@
+.reportes-container {
+  padding: 1.5rem;
+  background: #f9fafb;
+  border-radius: 12px;
+}
+
+/* Encabezado */
+.header h1 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.header p {
+  color: #6b7280;
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Gráficos */
+.graficos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.card h3 {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.chart-placeholder {
+  height: 200px;
+  border: 2px dashed #d1d5db;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6b7280;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+/* Reporte personalizado */
+.custom-report {
+  margin-bottom: 2rem;
+}
+
+.form-report {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.form-report label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+  display: block;
+}
+
+.form-report input,
+.form-report select {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+}
+
+.btn-generar {
+  align-self: end;
+  padding: 0.6rem 1rem;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn-generar:hover {
+  background: #1d4ed8;
+}
+
+/* KPIs */
+.kpis {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.kpi {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.kpi h2 {
+  font-size: 1.8rem;
+  margin: 0;
+}
+
+.kpi p {
+  font-size: 0.95rem;
+  margin: 0.3rem 0;
+}
+
+.kpi span {
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
+.kpi.azul h2 {
+  color: #2563eb;
+}
+.kpi.morado h2 {
+  color: #7e22ce;
+}
+.kpi.verde h2 {
+  color: #15803d;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .graficos {
+    grid-template-columns: 1fr;
+  }
+
+  .form-report {
+    grid-template-columns: 1fr;
+  }
+
+  .kpis {
+    grid-template-columns: 1fr;
+  }
+}

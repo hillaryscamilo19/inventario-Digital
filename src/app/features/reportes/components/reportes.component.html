@@ -1,1 +1,93 @@
-<p>reportes works!</p>
+<div class="p-6">
+  <!-- Título -->
+  <h2 class="text-2xl font-bold">Reportes</h2>
+  <p class="text-gray-500 mb-6">Análisis y reportes del sistema de inventario</p>
+
+  <!-- Tarjetas de reportes -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+    <!-- Consumo por Área -->
+    <div class="card bg-base-100 shadow-xl">
+      <div class="card-body">
+        <h3 class="card-title text-blue-600">📊 Consumo por Área</h3>
+        <div class="flex items-center justify-center border border-dashed border-gray-300 h-48 rounded-lg">
+          <span class="text-gray-400">500 x 300<br />Gráfico de consumo por área</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tendencia Mensual -->
+    <div class="card bg-base-100 shadow-xl">
+      <div class="card-body">
+        <h3 class="card-title text-green-600">📈 Tendencia Mensual</h3>
+        <div class="flex items-center justify-center border border-dashed border-gray-300 h-48 rounded-lg">
+          <span class="text-gray-400">500 x 300<br />Gráfico de tendencia mensual</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Generar Reporte Personalizado -->
+  <div class="card bg-base-100 shadow-xl mb-6">
+    <div class="card-body">
+      <h3 class="card-title text-purple-600">📝 Generar Reporte Personalizado</h3>
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-4 items-end">
+        <!-- Tipo de Reporte -->
+        <div>
+          <label class="label"><span class="label-text">Tipo de Reporte</span></label>
+          <select class="select select-bordered w-full">
+            <option disabled selected>Seleccione tipo</option>
+            <option>Medicamentos</option>
+            <option>Uniformes</option>
+          </select>
+        </div>
+
+        <!-- Fecha Inicio -->
+        <div>
+          <label class="label"><span class="label-text">Fecha Inicio</span></label>
+          <input type="date" class="input input-bordered w-full" />
+        </div>
+
+        <!-- Fecha Fin -->
+        <div>
+          <label class="label"><span class="label-text">Fecha Fin</span></label>
+          <input type="date" class="input input-bordered w-full" />
+        </div>
+
+        <!-- Botón Generar -->
+        <div>
+          <button class="btn btn-primary w-full">📥 Generar Reporte</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Métricas -->
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <!-- Total Medicamentos -->
+    <div class="stats shadow w-full">
+      <div class="stat">
+        <div class="stat-value text-blue-600">1,254</div>
+        <div class="stat-title">Total Medicamentos</div>
+        <div class="stat-desc text-green-600">+10% vs mes anterior</div>
+      </div>
+    </div>
+
+    <!-- Total Uniformes -->
+    <div class="stats shadow w-full">
+      <div class="stat">
+        <div class="stat-value text-purple-600">548</div>
+        <div class="stat-title">Total Uniformes</div>
+        <div class="stat-desc text-green-600">+5% vs mes anterior</div>
+      </div>
+    </div>
+
+    <!-- Entregas este mes -->
+    <div class="stats shadow w-full">
+      <div class="stat">
+        <div class="stat-value text-green-600">187</div>
+        <div class="stat-title">Entregas este mes</div>
+        <div class="stat-desc text-red-600">-8% vs mes anterior</div>
+      </div>
+    </div>
+  </div>
+</div>

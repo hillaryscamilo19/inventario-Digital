@@ -1,14 +1,16 @@
 <div class="contenerdor grid grid-cols-1 md:grid-cols-3 gap-3">
   <!-- Columna izquierda -->
   <div>
-    <h2 class="text-xl font-bold">MEDICAMENTO</h2>
-    <h2 class="text-lg mb-4">Gestión de medicamentos en inventario</h2>
+    <h2 class="text-xl font-bold text-neutral">MEDICAMENTO</h2>
+    <h2 class="text-lg mb-4 text-neutral">
+      Gestión de medicamentos en inventario
+    </h2>
 
     <div class="card formulario-registro p-4 shadow-lg">
       <!-- Menú de búsqueda -->
       <div class="mb-4">
-        <h2 class="font-semibold mb-2">Buscar Medicamento</h2>
-        <label class="input flex items-center gap-2">
+        <h2 class="font-semibold mb-2 text-neutral">Buscar Medicamento</h2>
+        <label class="input flex items-center gap-2 input-seach">
           <svg
             class="h-5 w-5 opacity-50"
             xmlns="http://www.w3.org/2000/svg"
@@ -25,14 +27,16 @@
               <path d="m21 21-4.3-4.3"></path>
             </g>
           </svg>
-          <input type="search" class="grow" placeholder="Search" />
+          <input type="search" class="text-neutral" placeholder="Search" />
         </label>
       </div>
 
       <!-- Estado -->
       <div class="mb-4">
-        <h2 class="font-semibold mb-2">Estado</h2>
-        <select class="select select-neutral w-full">
+        <h2 class="font-semibold mb-2 text-neutral">Estado</h2>
+        <select
+          class="select select-neutral w-full filtro-busqueda text-neutral"
+        >
           <option disabled selected>Seleccione estado</option>
           <option>Disponible</option>
           <option>Agotado</option>
@@ -41,7 +45,9 @@
       </div>
 
       <div>
-        <button class="btn btn-neutral w-full">Limpiar Filtro</button>
+        <button class="btn bton-limpiar w-full text-neutral">
+          Limpiar Filtro
+        </button>
       </div>
     </div>
   </div>
@@ -52,13 +58,66 @@
     <div class="card card-medicamentos p-4 shadow-md">
       <div>
         <div class="flex justify-between items-center">
-          <h2 class="font-bold">Paracetamol 500mg</h2>
+          <h2 class="font-bold text-info">Paracetamol 500mg</h2>
           <span class="badge badge-success">Disponible</span>
         </div>
         <div class="mt-2">
-          <h2>cajas con 100 tabletas</h2>
-          <p>Stock actual: <span class="font-bold">125</span></p>
-          <p>Stock mínimo: <span class="font-bold">50</span></p>
+          <h2 class="text-neutral">cajas con 100 tabletas</h2>
+          <p class="text-neutral">
+            Stock actual: <span class="font-bold">125</span>
+          </p>
+          <p class="text-neutral">
+            Stock mínimo: <span class="font-bold">50</span>
+          </p>
+        </div>
+        <div class="mt-3">
+          <button
+            class="btn btn-wide btn-primary"
+            onclick="my_modal_4.showModal()"
+          >
+            Registrar Entrega
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card medicamento -->
+    <div class="card card-medicamentos p-4 shadow-md">
+      <div>
+        <div class="flex justify-between items-center">
+          <h2 class="font-bold text-info">Paracetamol 500mg</h2>
+          <span class="badge badge-success">Disponible</span>
+        </div>
+        <div class="mt-2">
+          <h2 class="text-neutral">cajas con 100 tabletas</h2>
+          <p class="text-neutral">
+            Stock actual: <span class="font-bold">125</span>
+          </p>
+          <p class="text-neutral">
+            Stock mínimo: <span class="font-bold">50</span>
+          </p>
+        </div>
+        <div class="mt-3">
+          <button class="btn btn-wide btn-primary">Registrar Entrega</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card medicamento -->
+    <div class="card card-medicamentos p-4 shadow-md">
+      <div>
+        <div class="flex justify-between items-center">
+          <h2 class="font-bold text-info">Paracetamol 500mg</h2>
+          <span class="badge badge-success">Disponible</span>
+        </div>
+        <div class="mt-2">
+          <h2 class="text-neutral">cajas con 100 tabletas</h2>
+          <p class="text-neutral">
+            Stock actual: <span class="font-bold">125</span>
+          </p>
+          <p class="text-neutral">
+            Stock mínimo: <span class="font-bold">50</span>
+          </p>
         </div>
         <div class="mt-3">
           <button class="btn btn-wide btn-primary">Registrar Entrega</button>
@@ -70,13 +129,17 @@
     <div class="card card-medicamentos p-4 shadow-md">
       <div>
         <div class="flex justify-between items-center">
-          <h2 class="font-bold">Ibuprofeno 400mg</h2>
+          <h2 class="font-bold text-info">Ibuprofeno 400mg</h2>
           <span class="badge badge-success">Disponible</span>
         </div>
         <div class="mt-2">
-          <h2>cajas con 50 tabletas</h2>
-          <p>Stock actual: <span class="font-bold">80</span></p>
-          <p>Stock mínimo: <span class="font-bold">30</span></p>
+          <h2 class="text-neutral">cajas con 50 tabletas</h2>
+          <p class="text-neutral">
+            Stock actual: <span class="font-bold">80</span>
+          </p>
+          <p class="text-neutral">
+            Stock mínimo: <span class="font-bold">30</span>
+          </p>
         </div>
         <div class="mt-3">
           <button class="btn btn-wide btn-primary">Registrar Entrega</button>
@@ -87,13 +150,17 @@
     <div class="card card-medicamentos p-4 shadow-md">
       <div>
         <div class="flex justify-between items-center">
-          <h2 class="font-bold">Ibuprofeno 400mg</h2>
+          <h2 class="font-bold text-info">Ibuprofeno 400mg</h2>
           <span class="badge badge-success">Disponible</span>
         </div>
         <div class="mt-2">
-          <h2>cajas con 50 tabletas</h2>
-          <p>Stock actual: <span class="font-bold">80</span></p>
-          <p>Stock mínimo: <span class="font-bold">30</span></p>
+          <h2 class="text-neutral">cajas con 50 tabletas</h2>
+          <p class="text-neutral">
+            Stock actual: <span class="font-bold">80</span>
+          </p>
+          <p class="text-neutral">
+            Stock mínimo: <span class="font-bold">30</span>
+          </p>
         </div>
         <div class="mt-3">
           <button class="btn btn-wide btn-primary">Registrar Entrega</button>
@@ -104,13 +171,17 @@
     <div class="card card-medicamentos p-4 shadow-md">
       <div>
         <div class="flex justify-between items-center">
-          <h2 class="font-bold">Ibuprofeno 400mg</h2>
+          <h2 class="font-bold text-info">Ibuprofeno 400mg</h2>
           <span class="badge badge-success">Disponible</span>
         </div>
         <div class="mt-2">
-          <h2>cajas con 50 tabletas</h2>
-          <p>Stock actual: <span class="font-bold">80</span></p>
-          <p>Stock mínimo: <span class="font-bold">30</span></p>
+          <h2 class="text-neutral">cajas con 50 tabletas</h2>
+          <p class="text-neutral">
+            Stock actual: <span class="font-bold">80</span>
+          </p>
+          <p class="text-neutral">
+            Stock mínimo: <span class="font-bold">30</span>
+          </p>
         </div>
         <div class="mt-3">
           <button class="btn btn-wide btn-primary">Registrar Entrega</button>
@@ -118,4 +189,89 @@
       </div>
     </div>
   </div>
+
+  <div class="join">
+    <input
+      class="join-item btn btn-square text-neutral color-paginado"
+      type="radio"
+      name="options"
+      aria-label="1"
+      checked="checked"
+    />
+    <input
+      class="join-item btn btn-square text-neutral color-paginado"
+      type="radio"
+      name="options"
+      aria-label="2"
+    />
+    <input
+      class="join-item btn btn-square text-neutral color-paginado"
+      type="radio"
+      name="options"
+      aria-label="3"
+    />
+    <input
+      class="join-item btn btn-square text-neutral color-paginado"
+      type="radio"
+      name="options"
+      aria-label="4"
+    />
+  </div>
+
+  <!--Modal de Registro medicamento-->
+
+  <dialog id="my_modal_4" class="modal">
+    <div class="modal-box w-11/12 max-w-5xl">
+      <div>
+        <h2>Colaborabor</h2>
+        <select class="select">
+          <option disabled selected>Pick a color</option>
+          <option>Crimson</option>
+          <option>Amber</option>
+          <option>Velvet</option>
+        </select>
+      </div>
+
+      <div>
+        <h2>Area</h2>
+        <select class="select">
+          <option disabled selected>Pick a color</option>
+          <option>Crimson</option>
+          <option>Amber</option>
+          <option>Velvet</option>
+        </select>
+      </div>
+
+      <div>
+        <h2>Medicamento</h2>
+        <select class="select">
+          <option disabled selected>Pick a color</option>
+          <option>Crimson</option>
+          <option>Amber</option>
+          <option>Velvet</option>
+        </select>
+      </div>
+
+      <div>
+        <h2>Cantidad</h2>
+        <input type="text" placeholder="Ej: 2" class="input" />
+      </div>
+
+      <div>
+        <h2>Firma Digital</h2>
+        <input
+          type="text"
+          placeholder="Ingrese su Firma digital"
+          class="input"
+        />
+      </div>
+      <div class="modal-action">
+        <form method="dialog">
+          <!-- if there is a button, it will close the modal -->
+          <button class="btn">Registrar Entrega</button>
+          <button class="btn">Cancelar</button>
+        </form>
+      </div>
+    </div>
+  </dialog>
 </div>
