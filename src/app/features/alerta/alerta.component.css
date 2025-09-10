@@ -26,6 +26,11 @@
   margin-bottom: 1.5rem;
 }
 
+
+.text-fon{
+  font-size: 13%;
+}
+
 /* Cards */
 .cards {
   display: grid;
@@ -37,14 +42,30 @@
 .card {
   background: white;
   padding: 1.5rem;
+  width: 125%;
   border-radius: 12px;
   text-align: center;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
+.text-princ{
+  display: flex;
+  align-items: center;
+      justify-content: space-between;
+}
+
+.card-gestion{
+  display: flex;
+    justify-content: space-between;
+}
+
 .card h3 {
-  font-size: 1.5rem;
+font-size: 15px;
   font-weight: bold;
+}
+
+.filtros-alert{
+    width: 25%;
 }
 
 .icon {
@@ -162,6 +183,15 @@
     .alertcontainer{
         width: 100%;
     }
+
+
+
+.text-fon{
+  font-size: 13%;
+}
+
+
+
   .header {
     flex-direction: column;
     align-items: flex-start;

@@ -1,36 +1,44 @@
 <div class="alertcontainer">
   <!-- Header -->
-  <div class="flex justify-between items-center mb-6 header-responsive">
-    <h2 class="text-2xl font-bold">Alertas de Stock</h2>
-    <button class="btn btn-success w-full lg:w-auto">Marcar como Resueltas</button>
-  </div>
+  <div class="text-princ">
+    <span>
+      <h2 class="text-2xl font-bold">Alertas de Stock</h2>
+    </span>
 
-  <p class="mb-6 text-gray-600">Gestión de alertas y notificaciones del inventario</p>
-
-  <!-- Cards Resumen -->
-  <div class="">
-    <div class="card bg-base-100 shadow-md p-6 text-center">
-      <span class="text-yellow-500 text-4xl mb-2">⚠️</span>
-      <h3 class="text-2xl font-bold">3</h3>
-      <p class="text-gray-500">Stock Bajo</p>
-    </div>
-
-    <div class="card bg-base-100 shadow-md p-6 text-center">
-      <span class="text-red-500 text-4xl mb-2">🛑</span>
-      <h3 class="text-2xl font-bold">0</h3>
-      <p class="text-gray-500">Agotados</p>
-    </div>
-
-    <div class="card bg-base-100 shadow-md p-6 text-center">
-      <span class="text-blue-500 text-4xl mb-2">🔔</span>
-      <h3 class="text-2xl font-bold">3</h3>
-      <p class="text-gray-500">Total Alertas</p>
+    <div>
+      <button class="btn btn-success lg:w-auto">Marcar como Resueltas</button>
     </div>
   </div>
+
+  <p class="mb-6 text-gray-600">
+    Gestión de alertas y notificaciones del inventario
+  </p>
 
   <!-- Filtros -->
-  <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-6">
-    <select class="select select-bordered w-full sm:w-60">
+  <div
+    class="card-gestion flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-6 card bg-base-100 shadow-md p-6 text-center"
+  >
+    <div class="text-center flex flex-col sm:flex-row gap-5">
+      <div>
+        <span class="text-yellow-500 text-1xl mb-2">⚠️</span>
+        <h3 class="text-2xl font-bold">3</h3>
+        <p class="text-gray-500 text-sm font-bold">Bajo</p>
+      </div>
+
+      <div>
+        <span class="text-red-500 text-1xl mb-2">🛑</span>
+        <h3 class="text-1x0">0</h3>
+        <p class="text-gray-500 text-sm font-bold">Agotados</p>
+      </div>
+
+      <div>
+        <span class="text-blue-500 text-1xl mb-2">🔔</span>
+        <h3 class="text-fon">3</h3>
+        <p class="text-gray-500 text-1x1 text-sm font-bold">Alertas</p>
+      </div>
+    </div>
+
+    <select class="select select-bordered filtros-alert sm:w-60">
       <option selected>Todas las alertas</option>
       <option>Stock Bajo</option>
       <option>Agotados</option>
@@ -47,10 +55,14 @@
       <h3 class="text-xl font-semibold mb-4">Lista de Alertas (3)</h3>
 
       <!-- Item -->
-      <div class="flex flex-col md:flex-row justify-between md:items-center border-b pb-3 mb-3 gap-3">
+      <div
+        class="flex flex-col md:flex-row justify-between md:items-center border-b pb-3 mb-3 gap-3"
+      >
         <div>
           <h4 class="font-bold">Uniforme Talla XL</h4>
-          <p class="text-sm text-gray-500">Stock actual: 3 | Stock mínimo: 10</p>
+          <p class="text-sm text-gray-500">
+            Stock actual: 3 | Stock mínimo: 10
+          </p>
           <p class="text-xs text-gray-400">Hace 599 días</p>
         </div>
         <div class="flex gap-2">
@@ -60,10 +72,14 @@
       </div>
 
       <!-- Item -->
-      <div class="flex flex-col md:flex-row justify-between md:items-center border-b pb-3 mb-3 gap-3">
+      <div
+        class="flex flex-col md:flex-row justify-between md:items-center border-b pb-3 mb-3 gap-3"
+      >
         <div>
           <h4 class="font-bold">Amoxicilina 500mg</h4>
-          <p class="text-sm text-gray-500">Stock actual: 8 | Stock mínimo: 15</p>
+          <p class="text-sm text-gray-500">
+            Stock actual: 8 | Stock mínimo: 15
+          </p>
           <p class="text-xs text-gray-400">Hace 210 días</p>
         </div>
         <div class="flex gap-2">
@@ -73,10 +89,14 @@
       </div>
 
       <!-- Item -->
-      <div class="flex flex-col md:flex-row justify-between md:items-center gap-3">
+      <div
+        class="flex flex-col md:flex-row justify-between md:items-center gap-3"
+      >
         <div>
           <h4 class="font-bold">Ibuprofeno 400mg</h4>
-          <p class="text-sm text-gray-500">Stock actual: 5 | Stock mínimo: 12</p>
+          <p class="text-sm text-gray-500">
+            Stock actual: 5 | Stock mínimo: 12
+          </p>
           <p class="text-xs text-gray-400">Hace 120 días</p>
         </div>
         <div class="flex gap-2">
@@ -84,7 +104,6 @@
           <button class="btn btn-sm btn-primary">Reordenar</button>
         </div>
       </div>
-
     </div>
   </div>
 </div>

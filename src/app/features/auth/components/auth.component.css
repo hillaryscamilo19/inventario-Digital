@@ -8,7 +8,7 @@
   height: 49%;
   background-color: #ffffff;
   color: rgb(0, 0, 0);
-  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -45,9 +45,9 @@
   width: 100%;
 }
 
-.login-text{
+.login-text {
   font-size: 20px;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
 .login-auth-page .social-btn {
@@ -130,4 +130,292 @@
 
 input.ng-invalid.ng-touched {
   border: solid 2px red !important;
+}
+
+/* 📱 Responsive */
+@media (max-width: 1024px) {
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .alertcontainer {
+    width: 100%;
+  }
+
+  .root {
+    background-color: bisque;
+  }
+
+  .login-auth-page {
+    position: absolute;
+    width: 54%;
+    height: 49%;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    margin-top: 13%;
+    margin-left: 41%;
+  }
+
+  .login-auth-wrapper {
+    display: flex;
+    height: 114%;
+    background-color: rgb(255 255 255);
+    width: 237%;
+    padding: 50px;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .login-auth-page {
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .login-auth-page .login-social-zone {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    width: 100%;
+  }
+
+  .login-text {
+    font-size: 20px;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+      sans-serif;
+  }
+
+  .login-auth-page .social-btn {
+    border: 0;
+    padding: 0.5rem 2rem;
+    width: 100%;
+    font-size: 18px;
+    border-radius: 2px;
+    box-shadow: var(--shadow-1);
+    border: solid 1px rgb(255, 255, 255);
+    background-color: rgb(255, 255, 255);
+    font-weight: 600;
+  }
+
+  .login-auth-page .login-social-zone .social-btn.btn-fb {
+    background-color: #f2f6ff;
+    color: #000000;
+  }
+
+  .login-auth-page .login-social-zone .social-btn.btn-apple {
+    background-color: #1a1a1a;
+    color: #000000;
+  }
+
+  .login-auth-page .separator {
+    width: 100%;
+    margin: 2rem 0;
+    border-bottom: solid 1px rgb(250, 249, 255);
+    opacity: 0.2;
+  }
+
+  .login-auth-page .login-auth-form {
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+    flex-direction: column;
+  }
+
+  .login-auth-page .login-auth-form .form-group {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+  }
+
+  .login-auth-page .login-auth-form .form-group input {
+    border: solid 1px #e7e7e7;
+    border-radius: 1%;
+    height: 42px;
+    padding: 0.25rem 0.5rem;
+    font-size: 90%;
+  }
+
+  .login-auth-page .login-auth-form label {
+    padding-bottom: 0.35rem;
+    font-weight: 600;
+    display: inline-block;
+    margin: 0;
+  }
+
+  .login-auth-page .login-auth-form .form-steps {
+    padding: 0.5rem 0;
+  }
+
+  .login-auth-page .login-auth-form .form-steps .link {
+    color: #1b1a1a;
+    font-size: 85%;
+    font-weight: 500;
+    text-decoration: underline;
+  }
+
+  .login-auth-page .login-auth-form .form-steps .link:hover {
+    color: #000000;
+  }
+
+  .login-auth-page .login-auth-form .form-action .login {
+    color: #000000;
+    margin: 1rem 0;
+    background-color: rgb(238, 238, 238);
+  }
+
+  input.ng-invalid.ng-touched {
+    border: solid 2px red !important;
+  }
+}
+@media (max-width: 768px) {
+  .alertcontainer {
+    width: 100%;
+  }
+
+  .root {
+    background-color: bisque;
+  }
+
+  .login-auth-page {
+    position: absolute;
+    width: 54%;
+    height: 49%;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    margin-top: 13%;
+    margin-left: 41%;
+  }
+
+  .login-auth-wrapper {
+    display: flex;
+    width: 227%;
+    background-color: rgb(255 255 255);
+    width: 227%;
+    padding: 50px;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .login-auth-page {
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .login-auth-page .login-social-zone {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    width: 100%;
+  }
+
+  .login-text {
+    font-size: 20px;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+      sans-serif;
+  }
+
+  .login-auth-page .social-btn {
+    border: 0;
+    padding: 0.5rem 2rem;
+    width: 100%;
+    font-size: 18px;
+    border-radius: 2px;
+    box-shadow: var(--shadow-1);
+    border: solid 1px rgb(255, 255, 255);
+    background-color: rgb(255, 255, 255);
+    font-weight: 600;
+  }
+
+  .login-auth-page .login-social-zone .social-btn.btn-fb {
+    background-color: #f2f6ff;
+    color: #000000;
+  }
+
+  .login-auth-page .login-social-zone .social-btn.btn-apple {
+    background-color: #1a1a1a;
+    color: #000000;
+  }
+
+  .login-auth-page .separator {
+    width: 100%;
+    margin: 2rem 0;
+    border-bottom: solid 1px rgb(250, 249, 255);
+    opacity: 0.2;
+  }
+
+  .login-auth-page .login-auth-form {
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+    flex-direction: column;
+  }
+
+  .login-auth-page .login-auth-form .form-group {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+  }
+
+  .login-auth-page .login-auth-form .form-group input {
+    border: solid 1px #e7e7e7;
+    border-radius: 1%;
+    height: 42px;
+    padding: 0.25rem 0.5rem;
+    font-size: 90%;
+  }
+
+  .login-auth-page .login-auth-form label {
+    padding-bottom: 0.35rem;
+    font-weight: 600;
+    display: inline-block;
+    margin: 0;
+  }
+
+  .login-auth-page .login-auth-form .form-steps {
+    padding: 0.5rem 0;
+  }
+
+  .login-auth-page .login-auth-form .form-steps .link {
+    color: #1b1a1a;
+    font-size: 85%;
+    font-weight: 500;
+    text-decoration: underline;
+  }
+
+  .login-auth-page .login-auth-form .form-steps .link:hover {
+    color: #000000;
+  }
+
+  .login-auth-page .login-auth-form .form-action .login {
+    color: #000000;
+    margin: 1rem 0;
+    background-color: rgb(238, 238, 238);
+  }
+
+  input.ng-invalid.ng-touched {
+    border: solid 2px red !important;
+  }
+  .text-fon {
+    font-size: 13%;
+  }
 }
