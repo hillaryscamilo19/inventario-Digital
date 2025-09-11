@@ -221,10 +221,10 @@
   <!--Modal de Registro medicamento-->
 
   <dialog id="my_modal_4" class="modal">
-    <div class="modal-box w-11/12 max-w-5xl">
+    <div class="modal-box w-11/12 max-w-5xl contenerdor-registrar">
       <div>
         <h2>Colaborabor</h2>
-        <select class="select">
+        <select class="select w-115 selectBackg">
           <option disabled selected>Pick a color</option>
           <option>Crimson</option>
           <option>Amber</option>
@@ -234,7 +234,7 @@
 
       <div>
         <h2>Area</h2>
-        <select class="select">
+        <select class="select w-115 selectBackg">
           <option disabled selected>Pick a color</option>
           <option>Crimson</option>
           <option>Amber</option>
@@ -244,7 +244,7 @@
 
       <div>
         <h2>Medicamento</h2>
-        <select class="select">
+        <select class="select w-115 selectBackg">
           <option disabled selected>Pick a color</option>
           <option>Crimson</option>
           <option>Amber</option>
@@ -254,7 +254,11 @@
 
       <div>
         <h2>Cantidad</h2>
-        <input type="text" placeholder="Ej: 2" class="input" />
+        <input
+          type="text"
+          placeholder="Ej: 2"
+          class="input w-115 selectBackg"
+        />
       </div>
 
       <div>
@@ -262,14 +266,14 @@
         <input
           type="text"
           placeholder="Ingrese su Firma digital"
-          class="input"
+          class="input w-115 selectBackg"
         />
       </div>
-      <div class="modal-action">
+      <div class="modal-actio">
         <form method="dialog">
           <!-- if there is a button, it will close the modal -->
-          <button class="btn">Registrar Entrega</button>
-          <button class="btn">Cancelar</button>
+          <button class="btn selectBackg">Registrar Entrega</button>
+          <button class="btn selectBackg">Cancelar</button>
         </form>
       </div>
     </div>

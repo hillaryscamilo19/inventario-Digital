@@ -107,6 +107,24 @@
   margin-top: 1.5rem;
 }
 
+.card-medicamentos {
+  padding: 1.5rem;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin: 1rem auto;
+  max-width: 41%;
+}
+
+.contenerdor-registrar {
+  display: flex;
+  flex-direction: column;
+  width: 45%;
+  align-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
 /* 📱 Responsive */
 
 @media (max-width: 1024px) {
@@ -123,6 +141,24 @@
     flex-direction: column;
     gap: 2rem;
     background: #feffff;
+  }
+
+  .contenerdor-registrar {
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+    align-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .card-medicamentos {
+    padding: 1.5rem;
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin: 1rem auto;
+    max-width: 41%;
   }
 
   .input-seach {
@@ -156,9 +192,9 @@
   .Card-container {
     display: flex;
     grid-template-columns: repeat(3, 1fr);
-    flex-wrap: wrap; 
-    gap: 1rem; 
-    justify-content: flex-start; 
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: flex-start;
   }
 
   .card-medicamentos {
@@ -170,14 +206,34 @@
     min-width: 48%;
   }
 
-
-  .color-paginado{
+  .color-paginado {
     background-color: #f9f9f9;
   }
 }
 @media (min-width: 768px) {
   .contenido {
     grid-template-columns: 1fr 1fr; /* dos columnas en tablets */
+  }
+  .contenerdor-registrar {
+    display: flex;
+    background-color: #feffff;
+    flex-direction: column;
+    width: 65%;
+    align-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .selectBackg {
+    background-color: #fff;
+  }
+  .card-medicamentos {
+    padding: 1.5rem;
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin: 1rem auto;
+    max-width: 41%;
   }
 }
 

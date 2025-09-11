@@ -23,6 +23,10 @@
   background: #feffff;
 }
 
+.contenerdor-registrar {
+  display: flex;
+}
+
 .Card-container {
   display: flex;
   flex-wrap: wrap;
@@ -124,6 +128,10 @@
     gap: 2rem;
     background: #feffff;
   }
+
+  .contenerdor-registrar {
+    display: flex;
+  }
 }
 
 @media (max-width: 1024px) {
@@ -196,6 +204,26 @@
     background: #fff;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     margin: 0;
+  }
+
+  .contenerdor-registrar {
+    display: flex;
+    background-color: #feffff;
+    flex-direction: column;
+    width: 65%;
+    align-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .selectBackg {
+    background-color: #fff;
+  }
+
+  .modal-actio {
+    display: flex;
+    align-content: space-between;
+    align-items: center;
   }
 }
 @media (max-width: 768px) {
@@ -314,6 +342,16 @@
     gap: 1rem;
     margin-top: 1.5rem;
   }
+
+  .contenerdor-registrar {
+    display: flex;
+    background-color: #feffff;
+    flex-direction: column;
+    width: 57%;
+    align-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
 }
 
 @media (min-width: 1280px) {
@@ -428,5 +466,15 @@
     justify-content: flex-end;
     gap: 1rem;
     margin-top: 1.5rem;
+  }
+
+  .contenerdor-registrar {
+    display: flex;
+    background-color: #feffff;
+    flex-direction: column;
+    width: 57%;
+    align-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
   }
 }
