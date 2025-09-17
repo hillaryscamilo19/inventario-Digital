@@ -8,7 +8,8 @@ import { InventarioComponent } from './app/features/inventario/components/invent
 import { RegistroComponent } from './app/features/registro/components/registro.component';
 import { ReportesComponent } from './app/features/reportes/components/reportes.component';
 import { TestComponent } from './app/test.component';
-import { routes } from './app/app-routing.module';
+import { routes } from './app/app.routes';
+
 
 bootstrapApplication(AppComponent, {
   providers: [

@@ -1,17 +1,15 @@
 import { Component, type OnInit } from '@angular/core';
 import { type FormBuilder, type FormGroup, Validators } from '@angular/forms';
 import type { Router, ActivatedRoute } from '@angular/router';
-import type { AuthService } from './../../../services/auth.service';
+import type { AuthService } from '../../services/auth.service';
 
 @Component({
-  selector: 'app-auth',
-  standalone: true,
-  imports: [],
-  templateUrl: './auth.component.html',
-  styleUrl: './auth.component.css',
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css'],
 })
-export class AuthComponent {
-  formLogin: FormGroup | undefined;
+export class LoginComponent implements OnInit {
+  formLogin!: FormGroup;
   loading = false;
   submitted = false;
   error = '';
@@ -57,13 +55,13 @@ export class AuthComponent {
     this.error = '';
 
     this.authService
-      .login(this.f.email.value, this.f.password.value)
+      .login(this.f['email'].value, this.f['password'].value)
       .subscribe({
-        next: (response) => {
+        next: (response: any) => {
           console.log('Login exitoso:', response);
           this.router.navigate([this.returnUrl]);
         },
-        error: (error) => {
+        error: (error: { error: { detail: string } }) => {
           console.error('Error en login:', error);
           this.error =
             error.error?.detail ||

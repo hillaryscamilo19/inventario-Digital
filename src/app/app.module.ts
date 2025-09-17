@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
+
     // 🚨 Aquí NO va AppComponent porque es standalone
     // Si AuthComponent, ReportesComponent, etc. también son standalone, tampoco van aquí
   ],

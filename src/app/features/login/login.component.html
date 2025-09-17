@@ -3,48 +3,58 @@
     <h3 class="login-text">Sistema de Inventario.</h3>
     <h3 class="login-text">Control de medicamentos y uniformes</h3>
     <div class="separator"></div>
-    
+
     <!-- Mostrar error si existe -->
     <div *ngIf="error" class="alert alert-danger">
       {{ error }}
     </div>
-    
-    <form [formGroup]="formLogin" (ngSubmit)="onSubmit()" class="login-auth-form">
+
+    <form
+      [formGroup]="formLogin"
+      (ngSubmit)="onSubmit()"
+      class="login-auth-form"
+    >
       <div class="form-group">
         <label for="email">Usuario</label>
-        <input 
-          formControlName="email" 
-          type="text" 
+        <input
+          formControlName="email"
+          type="text"
           class="form-input"
-          [class.is-invalid]="submitted && f.email.errors">
+          [class.is-invalid]="submitted && f.email.errors"
+        />
         <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
           <div *ngIf="f.email.errors.required">El usuario es requerido</div>
         </div>
       </div>
-      
+
       <div class="form-group">
         <label for="password">Contraseña</label>
-        <input 
-          formControlName="password" 
-          type="password" 
+        <input
+          formControlName="password"
+          type="password"
           class="form-input"
-          [class.is-invalid]="submitted && f.password.errors">
+          [class.is-invalid]="submitted && f.password.errors"
+        />
         <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-          <div *ngIf="f.password.errors.required">La contraseña es requerida</div>
+          <div *ngIf="f.password.errors.required">
+            La contraseña es requerida
+          </div>
         </div>
       </div>
-      
+
       <div class="form-steps">
-        <a class="link" href="#" (click)="forgotPassword()">¿Se te ha olvidado la contraseña?</a>
+        <a class="link" href="#" (click)="forgotPassword()"
+          >¿Se te ha olvidado la contraseña?</a
+        >
       </div>
-      
+
       <div class="form-action">
-        <button 
-          [disabled]="loading" 
-          class="login social-btn"
-          type="submit">
-          <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
-          {{ loading ? 'Iniciando sesión...' : 'Iniciar sesión' }}
+        <button [disabled]="loading" class="login social-btn" type="submit">
+          <span
+            *ngIf="loading"
+            class="spinner-border spinner-border-sm mr-1"
+          ></span>
+          {{ loading ? "Iniciando sesión..." : "Iniciar sesión" }}
         </button>
       </div>
     </form>
