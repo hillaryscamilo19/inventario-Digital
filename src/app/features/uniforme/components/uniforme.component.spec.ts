@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UniformeComponent } from './uniforme.component';
+import { UniformeComponent } from './components/uniforme.component';
 
 describe('UniformeComponent', () => {
   let component: UniformeComponent;

@@ -20,10 +20,10 @@
           formControlName="email"
           type="text"
           class="form-input"
-          [class.is-invalid]="submitted && f.email.errors"
+          [class.is-invalid]="submitted && f['email'].errors"
         />
         <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
-          <div *ngIf="f.email.errors.required">El usuario es requerido</div>
+          <div *ngIf="f['email'].errors?.['required']">El usuario es requerido</div>
         </div>
       </div>
 
@@ -33,10 +33,10 @@
           formControlName="password"
           type="password"
           class="form-input"
-          [class.is-invalid]="submitted && f.password.errors"
+          [class.is-invalid]="submitted && f['password'].errors"
         />
         <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-          <div *ngIf="f.password.errors.required">
+          <div *ngIf="f.password.errors?.['required']">
             La contraseña es requerida
           </div>
         </div>
