@@ -23,9 +23,7 @@
           [class.is-invalid]="submitted && f['email'].errors"
         />
         <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
-          <div *ngIf="f['email'].errors?.['required']">
-            El usuario es requerido
-          </div>
+          <div *ngIf="f['email'].errors?.['required']">El usuario es requerido</div>
         </div>
       </div>
 
@@ -53,7 +51,7 @@
       <div class="form-action">
         <button [disabled]="loading" class="login social-btn" type="submit">
           <span
-            *ngIf="!loading"
+            *ngIf="loading"
             class="spinner-border spinner-border-sm mr-1"
           ></span>
           {{ loading ? "Iniciando sesión..." : "Iniciar sesión" }}
