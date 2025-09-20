@@ -1,31 +1,19 @@
-import { Component, OnInit } from '@angular/core';
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validators,
-  ReactiveFormsModule,
-} from '@angular/forms';
+import { Component,OnInit } from '@angular/core';
+import { Validators, FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+
 import { Router, ActivatedRoute } from '@angular/router';
-import { CommonModule } from '@angular/common';
 import { AuthService } from '../../../services/auth.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-login',
   standalone: true,
+  selector: 'app-login',
+  imports: [CommonModule, ReactiveFormsModule]   ,
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
-  imports: [CommonModule, ReactiveFormsModule],
 })
 export class LoginComponent implements OnInit {
-  forgotPassword() {
-    throw new Error('Method not implemented.');
-  }
-  formLogin!: FormGroup<{
-    email: FormControl<string | any>;
-    password: FormControl<string | any>;
-  }>;
-
+  formLogin!: FormGroup;
   loading = false;
   submitted = false;
   error = '';
@@ -36,20 +24,12 @@ export class LoginComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private authService: AuthService
-  ) {
-    if (this.authService.currentUserValue) {
-      this.router.navigate(['/dashboard']);
-    }
-  }
+  ) {}
 
   ngOnInit() {
     this.formLogin = this.formBuilder.group({
-      email: this.formBuilder.control('', {
-        validators: [Validators.required],
-      }),
-      password: this.formBuilder.control('', {
-        validators: [Validators.required],
-      }),
+      email: ['', [Validators.required]],
+      password: ['', Validators.required],
     });
 
     this.returnUrl =
@@ -63,16 +43,29 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     this.submitted = true;
     if (this.formLogin.invalid) return;
+
     this.loading = true;
     this.error = '';
+
     this.authService
       .login(this.f['email'].value, this.f['password'].value)
       .subscribe({
-        next: (response) => {
+        next: (response: { access_token: string }) => {
           console.log('Login exitoso:', response);
+
+          // ✅ guardar token si es necesario.
+          localStorage.setItem('token', response.access_token);
+
+          // ✅ marcar como autenticado en tu AuthService.
+          this.authService.getCurrentUser(response);
+
+          // ✅ redirigir.
           this.router.navigate([this.returnUrl]);
+
+          // ✅ quitar loading.
+          this.loading = false;
         },
-        error: (error) => {
+        error: (error: { error: { detail: string } }) => {
           console.error('Error en login:', error);
           this.error =
             error.error?.detail ||
@@ -80,5 +73,9 @@ export class LoginComponent implements OnInit {
           this.loading = false;
         },
       });
+  }
+
+  forgotPassword() {
+    console.log('Recuperar contraseña');
   }
 }

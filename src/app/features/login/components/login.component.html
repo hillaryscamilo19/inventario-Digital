@@ -22,7 +22,7 @@
           class="form-input"
           [class.is-invalid]="submitted && f['email'].errors"
         />
-        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+        <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
           <div *ngIf="f['email'].errors?.['required']">
             El usuario es requerido
           </div>
@@ -37,8 +37,8 @@
           class="form-input"
           [class.is-invalid]="submitted && f['password'].errors"
         />
-        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-          <div *ngIf="f.password.errors?.['required']">
+        <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
+         <div *ngIf="f['password'].errors?.['required']">
             La contraseña es requerida
           </div>
         </div>
@@ -53,7 +53,7 @@
       <div class="form-action">
         <button [disabled]="loading" class="login social-btn" type="submit">
           <span
-            *ngIf="!loading"
+            *ngIf="loading"
             class="spinner-border spinner-border-sm mr-1"
           ></span>
           {{ loading ? "Iniciando sesión..." : "Iniciar sesión" }}

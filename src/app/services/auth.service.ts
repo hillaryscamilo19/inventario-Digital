@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core"
-import { HttpClient } from "@angular/common/http"
-import {  Observable, BehaviorSubject } from "rxjs"
+import  { HttpClient } from "@angular/common/http"
+import { type Observable, BehaviorSubject } from "rxjs"
 import { tap } from "rxjs/operators"
 
 export interface User {
@@ -86,7 +86,7 @@ export class AuthService {
     }
   }
 
-  getCurrentUser(): Observable<User> {
+  getCurrentUser(response: { access_token: string }): Observable<User> {
     return this.http.get<User>(`${this.apiUrl}/me`)
   }
 
