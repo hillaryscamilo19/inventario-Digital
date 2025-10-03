@@ -36,159 +36,58 @@
         <h2 class="font-semibold mb-2 text-neutral">Estado</h2>
         <select
           class="select select-neutral w-full filtro-busqueda text-neutral"
+          [(ngModel)]="estadoFiltro"
         >
-          <option disabled selected>Seleccione estado</option>
-          <option>Disponible</option>
-          <option>Agotado</option>
-          <option>Próximo a vencer</option>
+          <option value="">Todos los estados</option>
+          <option value="Disponible">Disponible</option>
+          <option value="Agotado">Agotado</option>
+          <option value="Próximo a vencer">Próximo a vencer</option>
         </select>
       </div>
 
       <div>
-        <button class="btn bton-limpiar w-full text-neutral">
-          Limpiar Filtro
+        <button class="btn" onclick="my_modal_5.showModal()">
+          Registrar medicamento
         </button>
       </div>
     </div>
   </div>
 
   <!-- Columna derecha -->
-  <div class="Card-container grid gap-2">
-    <!-- Card medicamento -->
-    <div class="card card-medicamentos p-4 shadow-md">
-      <div>
-        <div class="flex justify-between items-center">
-          <h2 class="font-bold text-info">Paracetamol 500mg</h2>
-          <span class="badge badge-success">Disponible</span>
-        </div>
-        <div class="mt-2">
-          <h2 class="text-neutral">cajas con 100 tabletas</h2>
-          <p class="text-neutral">
-            Stock actual: <span class="font-bold">125</span>
-          </p>
-          <p class="text-neutral">
-            Stock mínimo: <span class="font-bold">50</span>
-          </p>
-        </div>
-        <div class="mt-3">
-          <button
-            class="btn btn-wide btn-primary"
-            onclick="my_modal_4.showModal()"
-          >
-            Registrar Entrega
-          </button>
-        </div>
+<!-- Iterar medicamentos con *ngFor -->
+<div class="Card-container grid gap-2">
+  <div 
+    *ngFor="let medicamento of medicamentosFiltrados" 
+    class="card card-medicamentos p-4 shadow-md"
+  >
+    <div>
+      <div class="flex justify-between items-center">
+        <h2 class="font-bold text-info">{{ medicamento.name }}</h2>
+        <span [class]="'badge ' + getBadgeClass(medicamento.estado || '')">
+          {{ medicamento.estado || 'Disponible' }}
+        </span>
       </div>
-    </div>
-
-    <!-- Card medicamento -->
-    <div class="card card-medicamentos p-4 shadow-md">
-      <div>
-        <div class="flex justify-between items-center">
-          <h2 class="font-bold text-info">Paracetamol 500mg</h2>
-          <span class="badge badge-success">Disponible</span>
-        </div>
-        <div class="mt-2">
-          <h2 class="text-neutral">cajas con 100 tabletas</h2>
-          <p class="text-neutral">
-            Stock actual: <span class="font-bold">125</span>
-          </p>
-          <p class="text-neutral">
-            Stock mínimo: <span class="font-bold">50</span>
-          </p>
-        </div>
-        <div class="mt-3">
-          <button class="btn btn-wide btn-primary">Registrar Entrega</button>
-        </div>
+      <div class="mt-2">
+        <h2 class="text-neutral">{{ medicamento.descripcion }}</h2>
+        <p class="text-neutral">
+          Stock actual: <span class="font-bold">{{ medicamento.stock_actual || 0 }}</span>
+        </p>
+        <p class="text-neutral">
+          Stock mínimo: <span class="font-bold">{{ medicamento.stock_minimo || 0 }}</span>
+        </p>
       </div>
-    </div>
-
-    <!-- Card medicamento -->
-    <div class="card card-medicamentos p-4 shadow-md">
-      <div>
-        <div class="flex justify-between items-center">
-          <h2 class="font-bold text-info">Paracetamol 500mg</h2>
-          <span class="badge badge-success">Disponible</span>
-        </div>
-        <div class="mt-2">
-          <h2 class="text-neutral">cajas con 100 tabletas</h2>
-          <p class="text-neutral">
-            Stock actual: <span class="font-bold">125</span>
-          </p>
-          <p class="text-neutral">
-            Stock mínimo: <span class="font-bold">50</span>
-          </p>
-        </div>
-        <div class="mt-3">
-          <button class="btn btn-wide btn-primary">Registrar Entrega</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Puedes repetir más cards aquí -->
-    <div class="card card-medicamentos p-4 shadow-md">
-      <div>
-        <div class="flex justify-between items-center">
-          <h2 class="font-bold text-info">Ibuprofeno 400mg</h2>
-          <span class="badge badge-success">Disponible</span>
-        </div>
-        <div class="mt-2">
-          <h2 class="text-neutral">cajas con 50 tabletas</h2>
-          <p class="text-neutral">
-            Stock actual: <span class="font-bold">80</span>
-          </p>
-          <p class="text-neutral">
-            Stock mínimo: <span class="font-bold">30</span>
-          </p>
-        </div>
-        <div class="mt-3">
-          <button class="btn btn-wide btn-primary">Registrar Entrega</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="card card-medicamentos p-4 shadow-md">
-      <div>
-        <div class="flex justify-between items-center">
-          <h2 class="font-bold text-info">Ibuprofeno 400mg</h2>
-          <span class="badge badge-success">Disponible</span>
-        </div>
-        <div class="mt-2">
-          <h2 class="text-neutral">cajas con 50 tabletas</h2>
-          <p class="text-neutral">
-            Stock actual: <span class="font-bold">80</span>
-          </p>
-          <p class="text-neutral">
-            Stock mínimo: <span class="font-bold">30</span>
-          </p>
-        </div>
-        <div class="mt-3">
-          <button class="btn btn-wide btn-primary">Registrar Entrega</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="card card-medicamentos p-4 shadow-md">
-      <div>
-        <div class="flex justify-between items-center">
-          <h2 class="font-bold text-info">Ibuprofeno 400mg</h2>
-          <span class="badge badge-success">Disponible</span>
-        </div>
-        <div class="mt-2">
-          <h2 class="text-neutral">cajas con 50 tabletas</h2>
-          <p class="text-neutral">
-            Stock actual: <span class="font-bold">80</span>
-          </p>
-          <p class="text-neutral">
-            Stock mínimo: <span class="font-bold">30</span>
-          </p>
-        </div>
-        <div class="mt-3">
-          <button class="btn btn-wide btn-primary">Registrar Entrega</button>
-        </div>
+      <div class="mt-3">
+        <button 
+          class="btn btn-wide btn-primary"
+          (click)="seleccionarMedicamento(medicamento)"
+          onclick="my_modal_4.showModal()"
+        >
+          Registrar Entrega
+        </button>
       </div>
     </div>
   </div>
+</div>
 
   <div class="join">
     <input
@@ -220,71 +119,58 @@
 
   <!--Modal de Registro medicamento-->
 
-  <dialog id="my_modal_4" class="modal">
-    <div class="modal-box w-11/12 max-w-5xl contenerdor-registrar">
-      <div>
-        <h2>Colaborabor</h2>
-        <input
-          type="text"
-          placeholder="Ingrese su Firma digital"
-          class="input w-115 selectBackg"
-        />
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 20 20"
-          fill="currentColor"
-          class="size-5"
+ <!-- Modal de registro de medicamento -->
+<dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">Registro de medicamento</h3>
+    <p class="py-4">Nombre</p>
+    <input 
+      type="text" 
+      placeholder="Ej: Acetaminofén" 
+      class="input w-100 selectBackg"
+      [(ngModel)]="nuevoMedicamento.name"
+    />
+    <div class="modal-action">
+      <button class="btn" (click)="registrarMedicamento()">Agregar</button>
+      <button class="btn" onclick="my_modal_5.close()">Cancelar</button>
+    </div>
+  </div>
+</dialog>
+
+  <!--modal para crear nuevo medicamento-->
+<!-- Iterar medicamentos con *ngFor -->
+<div class="Card-container grid gap-2">
+  <div 
+    *ngFor="let medicamento of medicamentosFiltrados" 
+    class="card card-medicamentos p-4 shadow-md"
+  >
+    <div>
+      <div class="flex justify-between items-center">
+        <h2 class="font-bold text-info">{{ medicamento.name }}</h2>
+        <span [class]="'badge ' + getBadgeClass(medicamento.estado || '')">
+          {{ medicamento.estado || 'Disponible' }}
+        </span>
+      </div>
+      <div class="mt-2">
+        <h2 class="text-neutral">{{ medicamento.descripcion }}</h2>
+        <p class="text-neutral">
+          Stock actual: <span class="font-bold">{{ medicamento.stock_actual || 0 }}</span>
+        </p>
+        <p class="text-neutral">
+          Stock mínimo: <span class="font-bold">{{ medicamento.stock_minimo || 0 }}</span>
+        </p>
+      </div>
+      <div class="mt-3">
+        <button 
+          class="btn btn-wide btn-primary"
+          (click)="seleccionarMedicamento(medicamento)"
+          onclick="my_modal_4.showModal()"
         >
-          <path
-            d="M10 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM1.615 16.428a1.224 1.224 0 0 1-.569-1.175 6.002 6.002 0 0 1 11.908 0c.058.467-.172.92-.57 1.174A9.953 9.953 0 0 1 7 18a9.953 9.953 0 0 1-5.385-1.572ZM16.25 5.75a.75.75 0 0 0-1.5 0v2h-2a.75.75 0 0 0 0 1.5h2v2a.75.75 0 0 0 1.5 0v-2h2a.75.75 0 0 0 0-1.5h-2v-2Z"
-          />
-        </svg>
-      </div>
-
-      <div>
-        <h2>Area</h2>
-        <select class="select w-115 selectBackg">
-          <option disabled selected>Pick a color</option>
-          <option>Crimson</option>
-          <option>Amber</option>
-          <option>Velvet</option>
-        </select>
-      </div>
-
-      <div>
-        <h2>Medicamento</h2>
-        <select class="select w-115 selectBackg">
-          <option disabled selected>Pick a color</option>
-          <option>Crimson</option>
-          <option>Amber</option>
-          <option>Velvet</option>
-        </select>
-      </div>
-
-      <div>
-        <h2>Cantidad</h2>
-        <input
-          type="text"
-          placeholder="Ej: 2"
-          class="input w-115 selectBackg"
-        />
-      </div>
-
-      <div>
-        <h2>Firma Digital</h2>
-        <input
-          type="text"
-          placeholder="Ingrese su Firma digital"
-          class="input w-115 selectBackg"
-        />
-      </div>
-      <div class="modal-actio">
-        <form method="dialog">
-          <!-- if there is a button, it will close the modal -->
-          <button class="btn selectBackg">Registrar Entrega</button>
-          <button class="btn selectBackg">Cancelar</button>
-        </form>
+          Registrar Entrega
+        </button>
       </div>
     </div>
-  </dialog>
+  </div>
+</div>
+
 </div>

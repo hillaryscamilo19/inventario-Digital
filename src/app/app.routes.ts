@@ -9,44 +9,26 @@ import { UniformeComponent } from './features/uniforme/components/uniforme.compo
 import { HistorialComponent } from './features/historial/components/historial.component';
 import { ReportesComponent } from './features/reportes/components/reportes.component';
 import { AlertaComponent } from './features/alerta/components/alerta.component';
+import { LayoutComponent } from './layout/layout.component';
 
 export const routes: Routes = [
   { path: 'login', component: LoginComponent },
-  {
-    path: 'dashboard',
-    component: DashboardComponent,
-    canActivate: [AuthGuard],
-  },
 
   {
-    path: 'inventario',
-    component: InventarioComponent,
+    path: '',
+    component: LayoutComponent,   // layout con sidebar + navbar
     canActivate: [AuthGuard],
+    children: [
+      { path: 'dashboard', component: DashboardComponent },
+      { path: 'inventario', component: InventarioComponent },
+      { path: 'medicamento', component: MedicamentoComponent },
+      { path: 'uniforme', component: UniformeComponent },
+      { path: 'historial', component: HistorialComponent },
+      { path: 'reportes', component: ReportesComponent },
+      { path: 'alerta', component: AlertaComponent },
+      { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+    ],
   },
-  {
-    path: 'medicamento',
-    component: MedicamentoComponent,
-    canActivate: [AuthGuard],
-  },
-  {
-    path: 'uniforme',
-    component: UniformeComponent,
-    canActivate: [AuthGuard],
-  },
-  {
-    path: 'historial',
-    component: HistorialComponent,
-    canActivate: [AuthGuard],
-  },
-  {
-    path: 'reportes',
-    component: ReportesComponent,
-    canActivate: [AuthGuard],
-  },
-  {
-    path: 'alerta',
-    component: AlertaComponent,
-    canActivate: [AuthGuard],
-  },
+
   { path: '**', redirectTo: 'login' },
 ];

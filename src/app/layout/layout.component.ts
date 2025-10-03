@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { FormBuilder } from '@angular/forms';
+import { ActivatedRoute, Router, RouterOutlet } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-layout',
@@ -14,4 +16,17 @@ export class LayoutComponent {
     this.isSidebarOpen = !this.isSidebarOpen;
   }
   items: any;
+
+
+    constructor(
+    private formBuilder: FormBuilder,
+    private route: ActivatedRoute,
+    private router: Router,
+    private authService: AuthService
+  ) {}
+
+  ngOnInit() {
+    this.authService.logout
+  }
+
 }
