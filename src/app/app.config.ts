@@ -2,30 +2,40 @@ import { bootstrapApplication } from '@angular/platform-browser';
 import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
 import { provideRouter, RouterOutlet } from '@angular/router';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-
-import { AppComponent } from './app/app.component';
-import { routes } from './app/app.routes';
-
-import { providePrimeNG } from 'primeng/config';
-import Lara from '@primeng/themes/lara'; // tema Lara como preset
 import { ButtonModule } from 'primeng/button';
-import { CardModule } from 'primeng/card';
-import { ColorPickerModule } from 'primeng/colorpicker';
-import { DatePickerModule } from 'primeng/datepicker';
-import { IconFieldModule } from 'primeng/iconfield';
-import { InputIconModule } from 'primeng/inputicon';
-import { SelectModule } from 'primeng/select';
-import { TableModule } from 'primeng/table';
-import { FloatLabelModule } from 'primeng/floatlabel';
+
+import { AppComponent } from './app.component';
+import { routes } from './app.routes';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
+import { authInterceptor } from './core/interceptors/auth.interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
+    provideHttpClient(withInterceptors([authInterceptor])),
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
     provideAnimationsAsync(),
-    providePrimeNG({ theme: { preset: Lara } })
+    providePrimeNG({ theme: { preset: Lara } }),
   ],
-  imports: [ButtonModule, ,RouterOutlet,FloatLabelModule, IconFieldModule,SelectModule , InputIconModule, CardModule,TableModule,ColorPickerModule, DatePickerModule] // importa los módulos de PrimeNG que usarás
+  imports: [
+    ButtonModule,
+    RouterOutlet,
+    FloatLabelModule,
+    IconFieldModule,
+    SelectModule,
+    InputIconModule,
+    CardModule,
+    TableModule,
+    ColorPickerModule,
+    DatePickerModule,
+  ], // importa los módulos de PrimeNG que usarás
 };
 
 bootstrapApplication(AppComponent, appConfig);
+function providePrimeNG(arg0: {
+  theme: { preset: any };
+}):
+  | import('@angular/core').Provider
+  | import('@angular/core').EnvironmentProviders {
+  throw new Error('Function not implemented.');
+}

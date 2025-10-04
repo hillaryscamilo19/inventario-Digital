@@ -45,11 +45,11 @@ export class AuthService {
     return this.currentUserSubject.value;
   }
 
-  login(username: string, password: string): Observable<LoginResponse> {
+  login(credentials: LoginRequest): Observable<LoginResponse> {
     // FastAPI OAuth2PasswordRequestForm espera form-data
     const formData = new FormData();
-    formData.append('username', username);
-    formData.append('password', password);
+formData.append('username', credentials.username);
+formData.append('password', credentials.password);
 
     return this.http.post<LoginResponse>(`${this.apiUrl}/token`, formData).pipe(
       tap((response) => {
