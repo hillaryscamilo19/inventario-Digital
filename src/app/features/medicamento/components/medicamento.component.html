@@ -82,7 +82,7 @@
           <button
             class="btn btn-wide btn-primary"
             (click)="seleccionarMedicamento(medicamento)"
-            onclick="my_modal_4.showModal()"
+            (click)="abrirModal('my_modal_4')"
           >
             Registrar Entrega
           </button>
@@ -119,8 +119,6 @@
     />
   </div>
 
-  <!--Modal de Registro medicamento-->
-
   <!-- Modal de registro de medicamento -->
   <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
     <div class="modal-box">
@@ -139,41 +137,110 @@
     </div>
   </dialog>
 
-  <!--modal para crear nuevo medicamento-->
-  <!-- Iterar medicamentos con *ngFor -->
-  <div class="Card-container grid gap-2">
-    <div
-      *ngFor="let medicamento of medicamentosFiltrados"
-      class="card card-medicamentos p-4 shadow-md"
-    >
-      <div>
-        <div class="flex justify-between items-center">
-          <h2 class="font-bold text-info">{{ medicamento.name }}</h2>
-          <span [class]="'badge ' + getBadgeClass(medicamento.estado || '')">
-            {{ medicamento.estado || "Disponible" }}
-          </span>
-        </div>
-        <div class="mt-2">
-          <h2 class="text-neutral">{{ medicamento.descripcion }}</h2>
-          <p class="text-neutral">
-            Stock actual:
-            <span class="font-bold">{{ medicamento.stock_actual || 0 }}</span>
-          </p>
-          <p class="text-neutral">
-            Stock mínimo:
-            <span class="font-bold">{{ medicamento.stock_minimo || 0 }}</span>
-          </p>
-        </div>
-        <div class="mt-3">
-          <button
-            class="btn btn-wide btn-primary"
-            (click)="seleccionarMedicamento(medicamento)"
-            onclick="my_modal_4.showModal()"
-          >
-            Registrar Entrega
-          </button>
-        </div>
+  <!-- Modal DaisyUI -->
+<dialog id="my_modal_4" class="modal">
+  <div class="modal-box w-11/12 max-w-lg">
+    <h3 class="font-bold text-lg mb-4">Registrar Nueva Entrega</h3>
+
+    <form (ngSubmit)="registrarEntrega()" #entregaForm="ngForm">
+      <!-- Área -->
+      <div class="form-control mb-3">
+        <label class="label">
+          <span class="label-text">Área</span>
+        </label>
+        <select
+          [(ngModel)]="nuevaEntrega.area"
+          name="area"
+          required
+          class="select select-bordered w-full"
+        >
+          <option [ngValue]="''" disabled>Seleccione un área</option>
+          <option *ngFor="let a of areas" [ngValue]="a.value">
+            {{ a.label }}
+          </option>
+        </select>
       </div>
-    </div>
+
+      <!-- Medicamento -->
+      <div class="form-control mb-3">
+        <label class="label">
+          <span class="label-text">Medicamento</span>
+        </label>
+        <select
+          [(ngModel)]="nuevaEntrega.medicamento_id"
+          name="medicamento_id"
+          required
+          class="select select-bordered w-full"
+        >
+          <option [ngValue]="0" disabled>Seleccione un medicamento</option>
+          <option *ngFor="let m of medicamentos" [ngValue]="m.id">
+            {{ m.name }}
+          </option>
+        </select>
+      </div>
+
+      <!-- Cantidad -->
+      <div class="form-control mb-3">
+        <label class="label">
+          <span class="label-text">Cantidad</span>
+        </label>
+        <input
+          type="number"
+          [(ngModel)]="nuevaEntrega.cantidad"
+          name="cantidad"
+          required
+          class="input input-bordered w-full"
+          min="1"
+        />
+      </div>
+
+      <!-- Firma -->
+      <div class="form-control mb-3">
+        <label class="label">
+          <span class="label-text">Firma digital</span>
+        </label>
+        <input
+          type="text"
+          [(ngModel)]="nuevaEntrega.firma"
+          name="firma"
+          required
+          class="input input-bordered w-full"
+        />
+      </div>
+
+      <!-- Empleado -->
+      <div class="form-control mb-3">
+        <label class="label">
+          <span class="label-text">Empleado</span>
+        </label>
+        <select
+          [(ngModel)]="nuevaEntrega.empleado_id"
+          name="empleado_id"
+          required
+          class="select select-bordered w-full"
+        >
+          <option [ngValue]="0" disabled>Seleccione un empleado</option>
+          <option *ngFor="let col of colaboradores" [ngValue]="col.value">
+            {{ col.label }}
+          </option>
+        </select>
+      </div>
+
+      <!-- Botones -->
+      <div class="modal-action">
+        <button
+          type="submit"
+          [disabled]="!entregaForm.form.valid"
+          class="btn btn-primary"
+        >
+          Guardar
+        </button>
+        <button type="button" class="btn" (click)="cerrarModal('my_modal_4')">
+          Cerrar
+        </button>
+      </div>
+    </form>
   </div>
+</dialog>
+
 </div>

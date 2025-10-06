@@ -1,50 +1,56 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Medicamento, Entrega, MedicamentoService } from '../../../services/medicamento.service';
-
+import {
+  Medicamento,
+  Entrega,
+  MedicamentoService,
+} from '../../../services/medicamento.service';
 
 @Component({
   selector: 'app-medicamento',
   standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './medicamento.component.html',
-  styleUrl: './medicamento.component.css'
+  styleUrl: './medicamento.component.css',
 })
 export class MedicamentoComponent implements OnInit {
   // Listas de datos
   medicamentos: Medicamento[] = [];
   entregas: Entrega[] = [];
-  
+
   // Filtros
   searchTerm: string = '';
   estadoFiltro: string = '';
 
   // Formulario de nuevo medicamento
   nuevoMedicamento: Medicamento = {
-    name: ''
+    name: '',
   };
 
   // Formulario de nueva entrega
   nuevaEntrega: Entrega = {
-    colaborador_id: 0,
+    area: '',
     departamento: '',
     medicamento_id: 0,
+    empleado_id: 0,
     cantidad: 0,
-    firma_digital: ''
+    firma: '',
+    created_at: '',
+    updated_at: '',
   };
 
   // Datos estáticos para los selects
   colaboradores = [
     { label: 'María González', value: 1 },
     { label: 'Juan Pérez', value: 2 },
-    { label: 'Carlos Rojas', value: 3 }
+    { label: 'Carlos Rojas', value: 3 },
   ];
 
   areas = [
     { label: 'Farmacia', value: 'farmacia' },
     { label: 'Enfermería', value: 'enfermeria' },
-    { label: 'Administración', value: 'administracion' }
+    { label: 'Administración', value: 'administracion' },
   ];
 
   constructor(private medicamentoService: MedicamentoService) {}
@@ -64,7 +70,7 @@ export class MedicamentoComponent implements OnInit {
       error: (error: any) => {
         console.error('Error al cargar medicamentos:', error);
         alert('Error al cargar los medicamentos');
-      }
+      },
     });
   }
 
@@ -77,8 +83,13 @@ export class MedicamentoComponent implements OnInit {
       },
       error: (error: any) => {
         console.error('Error al cargar entregas:', error);
-      }
+      },
     });
+  }
+
+  abrirModal(modalId: string): void {
+    const modal = document.getElementById(modalId) as HTMLDialogElement;
+    if (modal) modal.showModal();
   }
 
   // Registrar nuevo medicamento
@@ -99,39 +110,52 @@ export class MedicamentoComponent implements OnInit {
       error: (error: any) => {
         console.error('Error al registrar medicamento:', error);
         alert('Error al registrar el medicamento');
-      }
+      },
     });
   }
 
   // Registrar nueva entrega
+
   registrarEntrega(): void {
-    if (!this.nuevaEntrega.colaborador_id || !this.nuevaEntrega.medicamento_id || 
-        !this.nuevaEntrega.cantidad || !this.nuevaEntrega.firma_digital) {
-      alert('Por favor complete todos los campos');
+    // Validación mínima
+    if (
+      !this.nuevaEntrega.area ||
+      !this.nuevaEntrega.medicamento_id ||
+      !this.nuevaEntrega.cantidad ||
+      !this.nuevaEntrega.firma ||
+      !this.nuevaEntrega.empleado_id
+    ) {
+      alert('Por favor complete todos los campos.');
       return;
     }
 
+    // Asignar fechas automáticas
+    const now = new Date().toISOString();
+    this.nuevaEntrega.created_at = now;
+    this.nuevaEntrega.updated_at = now;
+
     this.medicamentoService.registrarEntrega(this.nuevaEntrega).subscribe({
-      next: (response: any) => {
-        console.log('Entrega registrada:', response);
+      next: (res) => {
+        console.log('Entrega registrada:', res);
         alert('Entrega registrada exitosamente');
-        this.cargarEntregas(); // Recargar entregas
-        this.cargarMedicamentos(); // Actualizar stock
-        this.limpiarFormularioEntrega();
+        this.cargarEntregas();
         this.cerrarModal('my_modal_4');
+        this.limpiarFormularioEntrega();
       },
-      error: (error: any) => {
-        console.error('Error al registrar entrega:', error);
-        alert('Error al registrar la entrega');
-      }
+      error: (err) => {
+        console.error('Error al registrar entrega:', err);
+        alert('Error al registrar entrega');
+      },
     });
   }
-
   // Filtrar medicamentos
   get medicamentosFiltrados(): Medicamento[] {
-    return this.medicamentos.filter(med => {
-      const matchSearch = med.name.toLowerCase().includes(this.searchTerm.toLowerCase());
-      const matchEstado = !this.estadoFiltro || med.estado === this.estadoFiltro;
+    return this.medicamentos.filter((med) => {
+      const matchSearch = med.name
+        .toLowerCase()
+        .includes(this.searchTerm.toLowerCase());
+      const matchEstado =
+        !this.estadoFiltro || med.estado === this.estadoFiltro;
       return matchSearch && matchEstado;
     });
   }
@@ -141,16 +165,20 @@ export class MedicamentoComponent implements OnInit {
     this.nuevaEntrega.medicamento_id = medicamento.id || 0;
   }
 
-  // Limpiar formulario de entrega
-  limpiarFormularioEntrega(): void {
-    this.nuevaEntrega = {
-      colaborador_id: 0,
-      departamento: '',
-      medicamento_id: 0,
-      cantidad: 0,
-      firma_digital: ''
-    };
-  }
+limpiarFormularioEntrega(): void {
+  const now = new Date().toISOString();
+  this.nuevaEntrega = {
+    empleado_id: 0,
+    area: '',
+    departamento: '',
+    medicamento_id: 0,
+    cantidad: 0,
+    firma: '',
+    created_at: now,
+    updated_at: now
+  };
+}
+
 
   // Cerrar modal
   cerrarModal(modalId: string): void {
@@ -162,11 +190,15 @@ export class MedicamentoComponent implements OnInit {
 
   // Obtener clase de badge según estado
   getBadgeClass(estado: string): string {
-    switch(estado?.toLowerCase()) {
-      case 'disponible': return 'badge-success';
-      case 'agotado': return 'badge-error';
-      case 'próximo a vencer': return 'badge-warning';
-      default: return 'badge-neutral';
+    switch (estado?.toLowerCase()) {
+      case 'disponible':
+        return 'badge-success';
+      case 'agotado':
+        return 'badge-error';
+      case 'próximo a vencer':
+        return 'badge-warning';
+      default:
+        return 'badge-neutral';
     }
   }
 }

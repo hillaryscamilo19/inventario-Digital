@@ -13,12 +13,15 @@ export interface Medicamento {
 
 export interface Entrega {
   id?: number;
-  colaborador_id: number;
+  area: string,
+  empleado_id: number;
   departamento: string;
   medicamento_id: number;
   cantidad: number;
-  firma_digital: string;
+  firma: string;
   fecha?: string;
+  created_at: string,
+  updated_at: string
 }
 
 @Injectable({
