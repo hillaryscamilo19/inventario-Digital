@@ -38,7 +38,7 @@
           class="select select-neutral w-full filtro-busqueda text-neutral"
           [(ngModel)]="estadoFiltro"
         >
-          <option value="">Todos los estados</option>
+          <option  option disabled selectedvalue="">Todos los estados</option>
           <option value="Disponible">Disponible</option>
           <option value="Agotado">Agotado</option>
           <option value="Próximo a vencer">Próximo a vencer</option>
@@ -138,30 +138,25 @@
   </dialog>
 
   <!-- Modal DaisyUI -->
-<dialog id="my_modal_4" class="modal">
-  <div class="modal-box w-11/12 max-w-lg">
-    <h3 class="font-bold text-lg mb-4">Registrar Nueva Entrega</h3>
+  <dialog id="my_modal_4" class="modal">
+    <div class="modal-box w-11/12 max-w-lg">
+      <h3 class="font-bold text-lg mb-4">Registrar Nueva Entrega</h3>
 
-    <form (ngSubmit)="registrarEntrega()" #entregaForm="ngForm">
-      <!-- Área -->
-      <div class="form-control mb-3">
-        <label class="label">
-          <span class="label-text">Área</span>
-        </label>
-        <select
-          [(ngModel)]="nuevaEntrega.area"
-          name="area"
-          required
-          class="select select-bordered w-full"
-        >
-          <option [ngValue]="''" disabled>Seleccione un área</option>
-          <option *ngFor="let a of areas" [ngValue]="a.value">
-            {{ a.label }}
-          </option>
-        </select>
-      </div>
+      <form (ngSubmit)="registrarEntrega()" #entregaForm="ngForm">
+        <!-- Área -->
+        <div class="form-control mb-3">
+          <label class="label">
+            <span class="label-text">Área</span>
+          </label>
+          <input
+            [(ngModel)]="nuevaEntrega.area"
+            name="area"
+            required
+            class="input input-bordered w-full"
+          />
+        </div>
 
-      <!-- Medicamento -->
+        <!-- Medicamento -->
       <div class="form-control mb-3">
         <label class="label">
           <span class="label-text">Medicamento</span>
@@ -179,68 +174,67 @@
         </select>
       </div>
 
-      <!-- Cantidad -->
-      <div class="form-control mb-3">
-        <label class="label">
-          <span class="label-text">Cantidad</span>
-        </label>
-        <input
-          type="number"
-          [(ngModel)]="nuevaEntrega.cantidad"
-          name="cantidad"
-          required
-          class="input input-bordered w-full"
-          min="1"
-        />
-      </div>
+        <!-- Cantidad -->
+        <div class="form-control mb-3">
+          <label class="label">
+            <span class="label-text">Cantidad</span>
+          </label>
+          <input
+            type="number"
+            [(ngModel)]="nuevaEntrega.cantidad"
+            name="cantidad"
+            required
+            class="input input-bordered w-full"
+            min="1"
+          />
+        </div>
 
-      <!-- Firma -->
-      <div class="form-control mb-3">
-        <label class="label">
-          <span class="label-text">Firma digital</span>
-        </label>
-        <input
-          type="text"
-          [(ngModel)]="nuevaEntrega.firma"
-          name="firma"
-          required
-          class="input input-bordered w-full"
-        />
-      </div>
+        <!-- Firma -->
+        <div class="form-control mb-3">
+          <label class="label">
+            <span class="label-text">Firma digital</span>
+          </label>
+          <input
+            type="text"
+            [(ngModel)]="nuevaEntrega.firma"
+            name="firma"
+            required
+            class="input input-bordered w-full"
+          />
+        </div>
 
-      <!-- Empleado -->
-      <div class="form-control mb-3">
-        <label class="label">
-          <span class="label-text">Empleado</span>
-        </label>
-        <select
-          [(ngModel)]="nuevaEntrega.empleado_id"
-          name="empleado_id"
-          required
-          class="select select-bordered w-full"
-        >
-          <option [ngValue]="0" disabled>Seleccione un empleado</option>
-          <option *ngFor="let col of colaboradores" [ngValue]="col.value">
-            {{ col.label }}
-          </option>
-        </select>
-      </div>
+        <!-- Empleado -->
+        <div class="form-control mb-3">
+          <label class="label">
+            <span class="label-text">Empleado</span>
+          </label>
+          <select
+            [(ngModel)]="nuevaEntrega.empleado_id"
+            name="empleado_id"
+            required
+            class="select select-bordered w-full"
+          >
+            <option [ngValue]="0" disabled>Seleccione un empleado</option>
+            <option *ngFor="let empleado of empleados" [ngValue]="empleado.id">
+              {{ empleado.nombre }} {{ empleado.apellido }}
+            </option>
+          </select>
+        </div>
 
-      <!-- Botones -->
-      <div class="modal-action">
-        <button
-          type="submit"
-          [disabled]="!entregaForm.form.valid"
-          class="btn btn-primary"
-        >
-          Guardar
-        </button>
-        <button type="button" class="btn" (click)="cerrarModal('my_modal_4')">
-          Cerrar
-        </button>
-      </div>
-    </form>
-  </div>
-</dialog>
-
+        <!-- Botones -->
+        <div class="modal-action">
+          <button
+            type="submit"
+            [disabled]="!entregaForm.form.valid"
+            class="btn btn-primary"
+          >
+            Guardar
+          </button>
+          <button type="button" class="btn" (click)="cerrarModal('my_modal_4')">
+            Cerrar
+          </button>
+        </div>
+      </form>
+    </div>
+  </dialog>
 </div>

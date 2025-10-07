@@ -5,6 +5,7 @@ import {
   Medicamento,
   Entrega,
   MedicamentoService,
+  Empleados,
 } from '../../../services/medicamento.service';
 
 @Component({
@@ -17,14 +18,20 @@ import {
 export class MedicamentoComponent implements OnInit {
   // Listas de datos
   medicamentos: Medicamento[] = [];
+  empleados: Empleados[] = [];
   entregas: Entrega[] = [];
-
+ 
   // Filtros
   searchTerm: string = '';
   estadoFiltro: string = '';
 
   // Formulario de nuevo medicamento
   nuevoMedicamento: Medicamento = {
+    name: '',
+  };
+
+  //Filtro de nombre de medicamento
+  MedicamentoName: Medicamento = {
     name: '',
   };
 
@@ -41,11 +48,14 @@ export class MedicamentoComponent implements OnInit {
   };
 
   // Datos estáticos para los selects
-  colaboradores = [
-    { label: 'María González', value: 1 },
-    { label: 'Juan Pérez', value: 2 },
-    { label: 'Carlos Rojas', value: 3 },
-  ];
+  colaboradores: Empleados = {
+    codigoEmpleado: '',
+    nombre: '',
+    apellido: '',
+    area: '',
+    cargo: '',
+    activo: '',
+  };
 
   areas = [
     { label: 'Farmacia', value: 'farmacia' },
@@ -58,6 +68,21 @@ export class MedicamentoComponent implements OnInit {
   ngOnInit(): void {
     this.cargarMedicamentos();
     this.cargarEntregas();
+    this.cargarEmpleados();
+  }
+
+  // Cargar empleados desde la API
+  cargarEmpleados(): void {
+    this.medicamentoService.getEmpleados().subscribe({
+      next: (data: Empleados[]) => {
+        this.empleados = data;
+        console.log('empleado cargados:', data);
+      },
+      error: (error: any) => {
+        console.error('Error al cargar empleados:', error);
+        alert('Error al cargar los empleados');
+      },
+    });
   }
 
   // Cargar medicamentos desde la API
@@ -165,20 +190,19 @@ export class MedicamentoComponent implements OnInit {
     this.nuevaEntrega.medicamento_id = medicamento.id || 0;
   }
 
-limpiarFormularioEntrega(): void {
-  const now = new Date().toISOString();
-  this.nuevaEntrega = {
-    empleado_id: 0,
-    area: '',
-    departamento: '',
-    medicamento_id: 0,
-    cantidad: 0,
-    firma: '',
-    created_at: now,
-    updated_at: now
-  };
-}
-
+  limpiarFormularioEntrega(): void {
+    const now = new Date().toISOString();
+    this.nuevaEntrega = {
+      empleado_id: 0,
+      area: '',
+      departamento: '',
+      medicamento_id: 0,
+      cantidad: 0,
+      firma: '',
+      created_at: now,
+      updated_at: now,
+    };
+  }
 
   // Cerrar modal
   cerrarModal(modalId: string): void {

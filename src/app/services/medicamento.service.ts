@@ -13,15 +13,25 @@ export interface Medicamento {
 
 export interface Entrega {
   id?: number;
-  area: string,
+  area: string;
   empleado_id: number;
   departamento: string;
   medicamento_id: number;
   cantidad: number;
   firma: string;
   fecha?: string;
-  created_at: string,
-  updated_at: string
+  created_at: string;
+  updated_at: string;
+}
+
+export interface Empleados {
+  id?: number;
+  codigoEmpleado: string;
+  nombre: string;
+  apellido: string;
+  area: string;
+  cargo: string;
+  activo: string;
 }
 
 @Injectable({
@@ -29,11 +39,11 @@ export interface Entrega {
 })
 export class MedicamentoService {
   private apiUrl = 'http://10.0.0.15:8000/medicamento';
+  private ApiUrl = 'http://10.0.0.15:8000/api/empleado/';
   private entregaUrl = 'http://10.0.0.15:8000/medicamento/entrega';
 
   constructor(private http: HttpClient) {}
 
-  /** 🔐 Helper: genera headers con el token */
   private getAuthHeaders(): HttpHeaders {
     const token =
       localStorage.getItem('access_token') || localStorage.getItem('token');
@@ -44,14 +54,21 @@ export class MedicamentoService {
     });
   }
 
-    private getHttpOptions() {
-    const token = localStorage.getItem('token'); // o access_token según cómo lo guardes
+  private getHttpOptions() {
+    const token = localStorage.getItem('token');
     return {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
         Authorization: `Bearer ${token}`,
       }),
     };
+  }
+
+  // Obtener todos los empleados
+  getEmpleados(): Observable<Empleados[]> {
+    return this.http.get<Empleados[]>(this.ApiUrl, {
+      headers: this.getAuthHeaders(),
+    });
   }
 
   // Obtener todos los medicamentos
