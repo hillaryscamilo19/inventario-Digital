@@ -5,12 +5,12 @@ import { Observable } from 'rxjs';
 export interface Medicamento {
   id?: number;
   name: string;
-  descripcion?: string;
-  stock_actual?: number;
+  cantidad?: number;
   stock_minimo?: number;
   estado?: string;
+  fecha_ingreso: string;
+  fecha_vencimiento: string;
 }
-
 export interface Entrega {
   id?: number;
   area: string;

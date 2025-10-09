@@ -12,9 +12,15 @@ export interface UniformeEntrega {
   firma: string;
 }
 
+// src/app/features/uniforme/models/uniforme.model.ts
 export interface Uniforme {
-  id?: number;
+  id: number;
   name: string;
+  stock_actual: number;
+  stock_minimo: number;
+  fecha_ingreso?: string;
+  fecha_vencimiento?: string;
+  estado: string; // Disponible | Próximo a vencer | Vencido | Bajo stock
 }
 
 export interface Empleados {

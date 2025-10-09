@@ -20,7 +20,7 @@ export class MedicamentoComponent implements OnInit {
   medicamentos: Medicamento[] = [];
   empleados: Empleados[] = [];
   entregas: Entrega[] = [];
- 
+
   // Filtros
   searchTerm: string = '';
   estadoFiltro: string = '';
@@ -28,11 +28,22 @@ export class MedicamentoComponent implements OnInit {
   // Formulario de nuevo medicamento
   nuevoMedicamento: Medicamento = {
     name: '',
+    cantidad: 0,
+    stock_minimo: 0,
+    estado: '',
+    fecha_ingreso: '',
+    fecha_vencimiento:''
+
   };
 
   //Filtro de nombre de medicamento
   MedicamentoName: Medicamento = {
     name: '',
+    cantidad: 0,
+    stock_minimo: 0,
+    estado: '',
+    fecha_ingreso: '',
+    fecha_vencimiento:''
   };
 
   // Formulario de nueva entrega

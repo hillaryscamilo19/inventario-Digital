@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
-import { Uniforme, UniformeEntrega, UniformeService } from '../../../services/uniforme.service';
+import {
+  Uniforme,
+  UniformeEntrega,
+  UniformeService,
+} from '../../../services/uniforme.service';
 import { Empleados } from '../../../services/medicamento.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -21,12 +25,25 @@ export class UniformeComponent {
 
   // Formulario de nuevo medicamento
   nuevoMedicamento: Uniforme = {
+    id: 0,
     name: '',
+    stock_actual: 0,
+    stock_minimo: 0,
+    fecha_ingreso:  '',
+    fecha_vencimiento: '',
+    estado: ''
+   
   };
 
   //Filtro de nombre de medicamento
   uniformeName: Uniforme = {
+     id: 0,
     name: '',
+    stock_actual: 0,
+    stock_minimo: 0,
+    fecha_ingreso:  '',
+    fecha_vencimiento: '',
+    estado: ''
   };
 
   // Formulario de nueva entrega
@@ -62,7 +79,16 @@ export class UniformeComponent {
     this.cargarEmpleados();
   }
 
-  
+  abrirModal(modalId: string): void {
+    const modal = document.getElementById(modalId) as HTMLDialogElement;
+    if (modal) modal.showModal();
+  }
+
+  // Seleccionar medicamento para entrega
+  seleccionarUniforme(uniforme: Uniforme): void {
+    this.nuevaEntrega.id = uniforme.id || 0;
+  }
+
   // Cargar empleados desde la API
   cargarEmpleados(): void {
     this.uniformeService.getEmpleados().subscribe({
@@ -77,47 +103,44 @@ export class UniformeComponent {
     });
   }
 
+  // Filtrar medicamentos
+  get uniformeFiltrados(): Uniforme[] {
+    return this.uniforme.filter((med) => {
+      const matchSearch = med.name
+        .toLowerCase()
+        .includes(this.searchTerm.toLowerCase());
+      const matchEstado = !this.estadoFiltro || med.name === this.estadoFiltro;
+      return matchSearch && matchEstado;
+    });
+  }
 
-    // Filtrar medicamentos
-    get uniformeFiltrados(): Uniforme[] {
-      return this.uniforme.filter((med) => {
-        const matchSearch = med.name
-          .toLowerCase()
-          .includes(this.searchTerm.toLowerCase());
-        const matchEstado =
-          !this.estadoFiltro || med.name === this.estadoFiltro;
-        return matchSearch && matchEstado;
-      });
-    }
+  // Cargar medicamentos desde la API
+  cargarUniforme(): void {
+    this.uniformeService.getMedicamentos().subscribe({
+      next: (data: Uniforme[]) => {
+        this.uniforme = data;
+        console.log('Medicamentos cargados:', data);
+      },
+      error: (error: any) => {
+        console.error('Error al cargar medicamentos:', error);
+        alert('Error al cargar los medicamentos');
+      },
+    });
+  }
 
-    // Cargar medicamentos desde la API
-    cargarUniforme(): void {
-      this.uniformeService.getMedicamentos().subscribe({
-        next: (data: Uniforme[]) => {
-          this.uniforme = data;
-          console.log('Medicamentos cargados:', data);
-        },
-        error: (error: any) => {
-          console.error('Error al cargar medicamentos:', error);
-          alert('Error al cargar los medicamentos');
-        },
-      });
-    }
-  
-
-      // Cargar entregas desde la API
-      cargarEntregas(): void {
-        this.uniformeService.getEntregas().subscribe({
-          next: (data: UniformeEntrega[]) => {
-            this.entrega = data;
-            console.log('Entregas cargadas:', data);
-          },
-          error: (error: any) => {
-            console.error('Error al cargar entregas:', error);
-          },
-        });
-      }
-    // Obtener clase de badge según estado
+  // Cargar entregas desde la API
+  cargarEntregas(): void {
+    this.uniformeService.getEntregas().subscribe({
+      next: (data: UniformeEntrega[]) => {
+        this.entrega = data;
+        console.log('Entregas cargadas:', data);
+      },
+      error: (error: any) => {
+        console.error('Error al cargar entregas:', error);
+      },
+    });
+  }
+  // Obtener clase de badge según estado
   getBadgeClass(estado: string): string {
     switch (estado?.toLowerCase()) {
       case 'disponible':

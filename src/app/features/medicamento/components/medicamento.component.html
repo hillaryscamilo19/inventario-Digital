@@ -38,7 +38,7 @@
           class="select select-neutral w-full filtro-busqueda text-neutral"
           [(ngModel)]="estadoFiltro"
         >
-          <option  option disabled selectedvalue="">Todos los estados</option>
+          <option option disabled selectedvalue="">Todos los estados</option>
           <option value="Disponible">Disponible</option>
           <option value="Agotado">Agotado</option>
           <option value="Próximo a vencer">Próximo a vencer</option>
@@ -157,22 +157,22 @@
         </div>
 
         <!-- Medicamento -->
-      <div class="form-control mb-3">
-        <label class="label">
-          <span class="label-text">Medicamento</span>
-        </label>
-        <select
-          [(ngModel)]="nuevaEntrega.medicamento_id"
-          name="medicamento_id"
-          required
-          class="select select-bordered w-full"
-        >
-          <option [ngValue]="0" disabled>Seleccione un medicamento</option>
-          <option *ngFor="let m of medicamentos" [ngValue]="m.id">
-            {{ m.name }}
-          </option>
-        </select>
-      </div>
+        <div class="form-control mb-3">
+          <label class="label">
+            <span class="label-text">Medicamento</span>
+          </label>
+          <select
+            [(ngModel)]="nuevaEntrega.medicamento_id"
+            name="medicamento_id"
+            required
+            class="select select-bordered w-full"
+          >
+            <option [ngValue]="0" disabled>Seleccione un medicamento</option>
+            <option *ngFor="let m of medicamentos" [ngValue]="m.id">
+              {{ m.name }}
+            </option>
+          </select>
+        </div>
 
         <!-- Cantidad -->
         <div class="form-control mb-3">
@@ -197,6 +197,34 @@
           <input
             type="text"
             [(ngModel)]="nuevaEntrega.firma"
+            name="firma"
+            required
+            class="input input-bordered w-full"
+          />
+        </div>
+
+                <!-- Firma -->
+        <div class="form-control mb-3">
+          <label class="label">
+            <span class="label-text">Firma digital</span>
+          </label>
+          <input
+            type="text"
+            [(ngModel)]="nuevaEntrega.fecha_ingreso"
+            name="firma"
+            required
+            class="input input-bordered w-full"
+          />
+        </div>
+
+                <!-- Firma -->
+        <div class="form-control mb-3">
+          <label class="label">
+            <span class="label-text">Firma digital</span>
+          </label>
+          <input
+            type="text"
+            [(ngModel)]="nuevaEntrega.fecha_vencimientots"
             name="firma"
             required
             class="input input-bordered w-full"
