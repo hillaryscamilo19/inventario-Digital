@@ -129,26 +129,16 @@ export class MedicamentoComponent implements OnInit {
   }
 
   // Registrar nuevo medicamento
-  registrarMedicamento(): void {
-    if (!this.nuevoMedicamento.name.trim()) {
-      alert('Por favor ingrese el nombre del medicamento');
-      return;
-    }
+registrarMedicamento() {
+  this.medicamentoService.crearMedicamento(this.nuevoMedicamento).subscribe({
+    next: () => {
+      this.cargarMedicamentos();
+      (document.getElementById('my_modal_5') as any).close();
+    },
+    error: (err) => console.error('Error al registrar medicamento:', err),
+  });
+}
 
-    this.medicamentoService.crearMedicamento(this.nuevoMedicamento).subscribe({
-      next: (response: any) => {
-        console.log('Medicamento registrado:', response);
-        alert('Medicamento registrado exitosamente');
-        this.cargarMedicamentos(); // Recargar la lista
-        this.nuevoMedicamento = { name: '' }; // Limpiar formulario
-        this.cerrarModal('my_modal_5');
-      },
-      error: (error: any) => {
-        console.error('Error al registrar medicamento:', error);
-        alert('Error al registrar el medicamento');
-      },
-    });
-  }
 
   // Registrar nueva entrega
 

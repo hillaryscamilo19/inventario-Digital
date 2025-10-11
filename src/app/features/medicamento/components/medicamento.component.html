@@ -68,10 +68,10 @@
           </span>
         </div>
         <div class="mt-2">
-          <h2 class="text-neutral">{{ medicamento.descripcion }}</h2>
+          <!--<h2 class="text-neutral">{{ medicamento.descripcion }}</h2>-->
           <p class="text-neutral">
             Stock actual:
-            <span class="font-bold">{{ medicamento.stock_actual || 0 }}</span>
+            <span class="font-bold">{{ medicamento.cantidad || 0 }}</span>
           </p>
           <p class="text-neutral">
             Stock mínimo:
@@ -143,18 +143,6 @@
       <h3 class="font-bold text-lg mb-4">Registrar Nueva Entrega</h3>
 
       <form (ngSubmit)="registrarEntrega()" #entregaForm="ngForm">
-        <!-- Área -->
-        <div class="form-control mb-3">
-          <label class="label">
-            <span class="label-text">Área</span>
-          </label>
-          <input
-            [(ngModel)]="nuevaEntrega.area"
-            name="area"
-            required
-            class="input input-bordered w-full"
-          />
-        </div>
 
         <!-- Medicamento -->
         <div class="form-control mb-3">
@@ -189,7 +177,7 @@
           />
         </div>
 
-        <!-- Firma -->
+                <!-- Firma -->
         <div class="form-control mb-3">
           <label class="label">
             <span class="label-text">Firma digital</span>
@@ -197,34 +185,6 @@
           <input
             type="text"
             [(ngModel)]="nuevaEntrega.firma"
-            name="firma"
-            required
-            class="input input-bordered w-full"
-          />
-        </div>
-
-                <!-- Firma -->
-        <div class="form-control mb-3">
-          <label class="label">
-            <span class="label-text">Firma digital</span>
-          </label>
-          <input
-            type="text"
-            [(ngModel)]="nuevaEntrega.fecha_ingreso"
-            name="firma"
-            required
-            class="input input-bordered w-full"
-          />
-        </div>
-
-                <!-- Firma -->
-        <div class="form-control mb-3">
-          <label class="label">
-            <span class="label-text">Firma digital</span>
-          </label>
-          <input
-            type="text"
-            [(ngModel)]="nuevaEntrega.fecha_vencimientots"
             name="firma"
             required
             class="input input-bordered w-full"
