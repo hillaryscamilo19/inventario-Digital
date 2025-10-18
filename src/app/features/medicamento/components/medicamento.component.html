@@ -31,20 +31,6 @@
         </label>
       </div>
 
-      <!-- Estado -->
-      <div class="mb-4">
-        <h2 class="font-semibold mb-2 text-neutral">Estado</h2>
-        <select
-          class="select select-neutral w-full filtro-busqueda text-neutral"
-          [(ngModel)]="estadoFiltro"
-        >
-          <option option disabled selectedvalue="">Todos los estados</option>
-          <option value="Disponible">Disponible</option>
-          <option value="Agotado">Agotado</option>
-          <option value="Próximo a vencer">Próximo a vencer</option>
-        </select>
-      </div>
-
       <div>
         <button class="btn" onclick="my_modal_5.showModal()">
           Registrar medicamento
@@ -53,7 +39,6 @@
     </div>
   </div>
 
-  <!-- Columna derecha -->
   <!-- Iterar medicamentos con *ngFor -->
   <div class="Card-container grid gap-2">
     <div
@@ -71,7 +56,7 @@
           <!--<h2 class="text-neutral">{{ medicamento.descripcion }}</h2>-->
           <p class="text-neutral">
             Stock actual:
-            <span class="font-bold">{{ medicamento.cantidad || 0 }}</span>
+            <span class="font-bold">{{ medicamento.stock_actual || 0 }}</span>
           </p>
           <p class="text-neutral">
             Stock mínimo:
@@ -122,28 +107,131 @@
   <!-- Modal de registro de medicamento -->
   <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
     <div class="modal-box">
-      <h3 class="text-lg font-bold">Registro de medicamento</h3>
-      <p class="py-4">Nombre</p>
-      <input
-        type="text"
-        placeholder="Ej: Acetaminofén"
-        class="input w-100 selectBackg"
-        [(ngModel)]="nuevoMedicamento.name"
-      />
-      <div class="modal-action">
-        <button class="btn" (click)="registrarMedicamento()">Agregar</button>
-        <button class="btn" onclick="my_modal_5.close()">Cancelar</button>
-      </div>
+      <h3 class="text-lg font-bold mb-4">Registrar nuevo medicamento</h3>
+
+      <form (ngSubmit)="registrarMedicamento()" #formMedicamento="ngForm">
+        <!-- Nombre -->
+        <div class="form-control mb-3">
+          <label class="label">
+            <span class="label-text">Nombre</span>
+          </label>
+          <input
+            type="text"
+            class="input input-bordered w-full"
+            [(ngModel)]="nuevoMedicamento.name"
+            name="name"
+            required
+          />
+        </div>
+
+        <!-- Stock actual -->
+        <div class="form-control mb-3">
+          <label class="label">
+            <span class="label-text">Stock actual</span>
+          </label>
+          <input
+            type="number"
+            class="input input-bordered w-full"
+            [(ngModel)]="nuevoMedicamento.stock_actual"
+            name="stock_actual"
+            min="0"
+            required
+          />
+        </div>
+
+        <!-- Stock mínimo -->
+        <div class="form-control mb-3">
+          <label class="label">
+            <span class="label-text">Stock mínimo</span>
+          </label>
+          <input
+            type="number"
+            class="input input-bordered w-full"
+            [(ngModel)]="nuevoMedicamento.stock_minimo"
+            name="stock_minimo"
+            min="0"
+            required
+          />
+        </div>
+
+        <!-- Estado -->
+        <div class="form-control mb-3">
+          <label class="label">
+            <span class="label-text">Estado</span>
+          </label>
+          <select
+            class="select select-bordered w-full"
+            [(ngModel)]="nuevoMedicamento.estado"
+            name="estado"
+            required
+          >
+            <option [ngValue]="true">Activo</option>
+            <option [ngValue]="false">Inactivo</option>
+          </select>
+        </div>
+
+        <!-- Fechas -->
+        <div class="form-control mb-3">
+          <label class="label">
+            <span class="label-text">Fecha de ingreso</span>
+          </label>
+          <input
+            type="date"
+            class="input input-bordered w-full"
+            [(ngModel)]="nuevoMedicamento.fecha_ingreso"
+            name="fecha_ingreso"
+            required
+          />
+        </div>
+
+        <div class="form-control mb-3">
+          <label class="label">
+            <span class="label-text">Fecha de vencimiento</span>
+          </label>
+          <input
+            type="date"
+            class="input input-bordered w-full"
+            [(ngModel)]="nuevoMedicamento.fecha_vencimiento"
+            name="fecha_vencimiento"
+            required
+          />
+        </div>
+
+        <div class="modal-action">
+          <button
+            type="submit"
+            [disabled]="!formMedicamento.form.valid"
+            class="btn btn-primary"
+          >
+            Agregar
+          </button>
+          <button type="button" class="btn" onclick="my_modal_5.close()">
+            Cancelar
+          </button>
+        </div>
+      </form>
     </div>
   </dialog>
 
-  <!-- Modal DaisyUI -->
+  <!-- Modal para registrar entrega -->
   <dialog id="my_modal_4" class="modal">
     <div class="modal-box w-11/12 max-w-lg">
       <h3 class="font-bold text-lg mb-4">Registrar Nueva Entrega</h3>
 
       <form (ngSubmit)="registrarEntrega()" #entregaForm="ngForm">
-
+        <!-- Departamento -->
+        <div class="form-control mb-3">
+          <label class="label">
+            <span class="label-text">Area</span>
+          </label>
+          <input
+            type="text"
+            [(ngModel)]="nuevaEntrega.Area"
+            name="Area"
+            required
+            class="input input-bordered w-full"
+          />
+        </div>
         <!-- Medicamento -->
         <div class="form-control mb-3">
           <label class="label">
@@ -177,7 +265,7 @@
           />
         </div>
 
-                <!-- Firma -->
+        <!-- Firma -->
         <div class="form-control mb-3">
           <label class="label">
             <span class="label-text">Firma digital</span>

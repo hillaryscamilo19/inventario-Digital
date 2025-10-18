@@ -10,17 +10,19 @@ export interface UniformeEntrega {
   area: string;
   cantidad: number;
   firma: string;
+  created_at: string,
+  updated_at: string,
 }
-
-// src/app/features/uniforme/models/uniforme.model.ts
 export interface Uniforme {
   id: number;
   name: string;
   stock_actual: number;
   stock_minimo: number;
-  fecha_ingreso?: string;
-  fecha_vencimiento?: string;
+  fecha_ingreso: string;
+  fecha_vencimiento: string;
   estado: string; // Disponible | Próximo a vencer | Vencido | Bajo stock
+  created_at: string,
+  updated_at: string,
 }
 
 export interface Empleados {
@@ -61,18 +63,26 @@ export class UniformeService {
   }
 
   // Obtener todos los uniforme
-  getMedicamentos(): Observable<Uniforme[]> {
+  getUniforme(): Observable<Uniforme[]> {
     return this.http.get<Uniforme[]>(this.apiUrl, {
       headers: this.getAuthHeaders(),
     });
   }
 
   // Crear un nuevo medicamento
-  crearMedicamento(uniforme: Uniforme): Observable<Uniforme> {
+  crearUniforme(uniforme: Uniforme): Observable<Uniforme> {
     return this.http.post<Uniforme>(this.apiUrl, uniforme, {
       headers: this.getAuthHeaders(),
     });
   }
+
+
+  // Registrar una nueva entrega
+    registrarEntrega(entrega: UniformeEntrega): Observable<UniformeEntrega> {
+      return this.http.post<UniformeEntrega>(this.entregaUrl, entrega, {
+        headers: this.getAuthHeaders(),
+      });
+    }
 
   // Obtener todas las entregas
   getEntregas(): Observable<UniformeEntrega[]> {

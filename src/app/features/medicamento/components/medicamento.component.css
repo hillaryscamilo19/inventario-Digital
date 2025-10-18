@@ -1,7 +1,7 @@
 .formulario-registro {
   display: flex;
   padding: 1.5rem;
-  border-radius: 1px;
+  border-radius: 12px;
   background: #fff;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   margin: 1rem auto;
@@ -23,34 +23,11 @@
   background: #feffff;
 }
 
-.contenedor-input-icono {
-  display: grid;
-  grid-template-columns: 150px 1fr; /* primera col fija, segunda ocupa resto */
-  gap: 10px;
-  align-items: center;
-  margin-bottom: 12px; /* separación entre filas */
-}
-
-.contenedor-input-icono h2 {
-  font-size: 14px;
-  font-weight: 600;
-  margin: 0; /* quita márgenes extra */
-}
-
-.contenedor-input-icono input,
-.contenedor-input-icono select {
-  width: 100%;
-}
-
-.contenerdor-registrar {
-  display: flex;
-}
-
 .Card-container {
   display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  justify-content: flex-start;
+  flex-wrap: wrap; /* ✅ permite que las cards bajen */
+  gap: 1rem; /* ✅ espacio entre cards */
+  justify-content: flex-start; /* alineación más natural */
 }
 
 .container1 {
@@ -130,71 +107,31 @@
   margin-top: 1.5rem;
 }
 
-.card {
+.card-medicamentos {
+  padding: 1.5rem;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin: 1rem auto;
+  max-width: 41%;
+}
+
+.contenerdor-registrar {
   display: flex;
+  flex-direction: column;
+  width: 45%;
+  align-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 /* 📱 Responsive */
-
-@media (max-width: 740px) {
-  .contenerdor {
-    padding: 1rem;
-    display: flex;
-    border-radius: 17px;
-    width: 100%;
-    height: 103%;
-    flex-direction: column;
-    gap: 2rem;
-    background: #feffff;
-  }
-
-  .contenerdor-registrar {
-    display: flex;
-    background-color: #feffff;
-    flex-direction: column;
-    width: 65%;
-    align-content: space-between;
-    align-items: baseline;
-    flex-wrap: wrap;
-  }
-
-  .contenedor-input-icono {
-    display: grid;
-    grid-template-columns: 150px 1fr; /* primera col fija, segunda ocupa resto */
-    gap: 10px;
-    align-items: center;
-    margin-bottom: 12px; /* separación entre filas */
-  }
-
-  .contenedor-input-icono h2 {
-    font-size: 14px;
-    font-weight: 600;
-    margin: 0; /* quita márgenes extra */
-  }
-
-  .contenedor-input-icono input,
-  .contenedor-input-icono select {
-    width: 100%;
-  }
-}
 
 @media (max-width: 1024px) {
   .form-grid {
     grid-template-columns: 1fr;
   }
 
-  .card-medicamentos {
-    padding: 1.5rem;
-    border-radius: 12px;
-    background: #fff;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    margin: 1rem auto;
-    max-width: 48%;
-  }
-
-  .color-paginado {
-    background-color: #f9f9f9;
-  }
   .contenerdor {
     padding: 1rem;
     display: flex;
@@ -204,6 +141,24 @@
     flex-direction: column;
     gap: 2rem;
     background: #feffff;
+  }
+
+  .contenerdor-registrar {
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+    align-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .card-medicamentos {
+    padding: 1.5rem;
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin: 1rem auto;
+    max-width: 41%;
   }
 
   .input-seach {
@@ -219,6 +174,7 @@
     background-color: #fafafa;
     border-color: #f9f9f9;
   }
+
   .formulario-registro {
     display: flex;
     padding: 1.5rem;
@@ -235,7 +191,7 @@
 
   .Card-container {
     display: flex;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     flex-wrap: wrap;
     gap: 1rem;
     justify-content: flex-start;
@@ -243,127 +199,34 @@
 
   .card-medicamentos {
     padding: 1.5rem;
-    width: 63%;
     border-radius: 12px;
     background: #fff;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    margin: 0;
+    margin: 1rem auto;
+    min-width: 48%;
   }
 
+  .color-paginado {
+    background-color: #f9f9f9;
+  }
+}
+@media (min-width: 768px) {
+  .contenido {
+    grid-template-columns: 1fr 1fr; /* dos columnas en tablets */
+  }
   .contenerdor-registrar {
     display: flex;
     background-color: #feffff;
     flex-direction: column;
     width: 65%;
     align-content: space-between;
-    align-items: baseline;
+    align-items: center;
     flex-wrap: wrap;
   }
 
   .selectBackg {
     background-color: #fff;
   }
-
-  .modal-actio {
-    display: flex;
-    align-content: space-between;
-    align-items: center;
-  }
-
-  .contenedor-input-icono {
-    display: grid;
-    grid-template-columns: 150px 1fr; /* primera col fija, segunda ocupa resto */
-    gap: 10px;
-    align-items: center;
-    margin-bottom: 12px; /* separación entre filas */
-  }
-
-  .contenedor-input-icono h2 {
-    font-size: 14px;
-    font-weight: 600;
-    margin: 0; /* quita márgenes extra */
-  }
-
-  .contenedor-input-icono input,
-  .contenedor-input-icono select {
-    width: 100%;
-  }
-}
-@media (max-width: 768px) {
-  .contenido {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .card {
-    display: flex;
-  }
-  .formulario-registro {
-    display: flex;
-    padding: 1.5rem;
-    border-radius: 12px;
-    background: #fff;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    margin: 1rem auto;
-    min-width: 100%;
-    flex-direction: row;
-    align-content: space-between;
-    justify-content: space-between;
-    align-items: flex-end;
-  }
-
-  .contenerdor {
-    padding: 1rem;
-    display: flex;
-    border-radius: 17px;
-    width: 134%;
-    height: 103%;
-    flex-direction: column;
-    gap: 2rem;
-    background: #feffff;
-  }
-
-  .contenedor-input-icono {
-    display: grid;
-    grid-template-columns: 150px 1fr; /* primera col fija, segunda ocupa resto */
-    gap: 10px;
-    align-items: center;
-    margin-bottom: 12px; /* separación entre filas */
-  }
-
-  .contenedor-input-icono h2 {
-    font-size: 14px;
-    font-weight: 600;
-    margin: 0; /* quita márgenes extra */
-  }
-
-  .contenedor-input-icono input,
-  .contenedor-input-icono select {
-    width: 100%;
-  }
-
-  .Card-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    justify-content: flex-start;
-  }
-
-  .container1 {
-    display: flex;
-  }
-
-  .container2 {
-    display: flex;
-  }
-
-  .container3 {
-    display: flex;
-  }
-
-  .text {
-    font-size: 15px;
-  }
-
   .card-medicamentos {
     padding: 1.5rem;
     border-radius: 12px;
@@ -371,192 +234,12 @@
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     margin: 1rem auto;
     max-width: 41%;
-  }
-
-  .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1.5rem;
-  }
-
-  .form-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-  }
-
-  .p-field {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .firma-section {
-    margin-top: 1.5rem;
-  }
-
-  .firma-box {
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    height: 150px;
-    background: #f9f9f9;
-    margin-bottom: 0.5rem;
-  }
-
-  .limpiar {
-    display: inline-block;
-    margin-top: 0.5rem;
-    color: #007bff;
-    cursor: pointer;
-    font-size: 0.9rem;
-  }
-
-  .firma-hint {
-    display: block;
-    text-align: right;
-    font-size: 0.8rem;
-    color: #777;
-  }
-
-  .acciones {
-    display: flex;
-    justify-content: flex-end;
-    gap: 1rem;
-    margin-top: 1.5rem;
-  }
-
-  .contenerdor-registrar {
-    display: flex;
-    background-color: #feffff;
-    flex-direction: column;
-    width: 65%;
-    align-content: space-between;
-    align-items: baseline;
-    flex-wrap: wrap;
   }
 }
 
 @media (min-width: 1280px) {
-  .contenido {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .formulario-registro {
-    display: flex;
-    padding: 1.5rem;
-    border-radius: 12px;
-    background: #fff;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    margin: 1rem auto;
-    min-width: 100%;
-    flex-direction: row;
-    align-content: space-between;
-    justify-content: space-between;
-    align-items: flex-end;
-  }
-
-  .contenerdor {
-    padding: 1rem;
-    display: flex;
-    border-radius: 17px;
-    width: 134%;
-    height: 103%;
-    flex-direction: column;
-    gap: 2rem;
-    background: #feffff;
-  }
-
-  .Card-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    justify-content: flex-start;
-  }
-
-  .container1 {
-    display: flex;
-  }
-
-  .container2 {
-    display: flex;
-  }
-
-  .container3 {
-    display: flex;
-  }
-
-  .text {
-    font-size: 15px;
-  }
-
-  .card-medicamentos {
-    padding: 1.5rem;
-    border-radius: 12px;
-    background: #fff;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    margin: 1rem auto;
-    max-width: 41%;
-  }
-
-  .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1.5rem;
-  }
-
-  .form-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-  }
-
-  .p-field {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .firma-section {
-    margin-top: 1.5rem;
-  }
-
-  .firma-box {
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    height: 150px;
-    background: #f9f9f9;
-    margin-bottom: 0.5rem;
-  }
-
-  .limpiar {
-    display: inline-block;
-    margin-top: 0.5rem;
-    color: #007bff;
-    cursor: pointer;
-    font-size: 0.9rem;
-  }
-
-  .firma-hint {
-    display: block;
-    text-align: right;
-    font-size: 0.8rem;
-    color: #777;
-  }
-
-  .acciones {
-    display: flex;
-    justify-content: flex-end;
-    gap: 1rem;
-    margin-top: 1.5rem;
-  }
-
-  .contenerdor-registrar {
-    display: flex;
-    background-color: #feffff;
-    flex-direction: column;
-    width: 65%;
-    align-content: space-between;
-    align-items: baseline;
-    flex-wrap: wrap;
+  .dashboard {
+    max-width: 1200px;
+    margin: auto; /* centrar en pantallas grandes */
   }
 }

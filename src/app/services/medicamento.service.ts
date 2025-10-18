@@ -5,24 +5,46 @@ import { Observable } from 'rxjs';
 export interface Medicamento {
   id?: number;
   name: string;
-  cantidad?: number;
+  stock_actual: number;
   stock_minimo?: number;
   estado?: string;
   fecha_ingreso: string;
   fecha_vencimiento: string;
+  created_at: string;
+  updated_at: string;
 }
 export interface Entrega {
   id?: number;
-  area: string;
+  Area: string;
   empleado_id: number;
-  departamento: string;
   medicamento_id: number;
+  cantidad: number;
+  firma: string;
+  created_at: string;
+  updated_at: string;
+}
+
+export interface RegistroEntrega {
+  id?: number;
+  Area: string;
+  empleado?: {
+    nombre: string;
+    apellido: string;
+    area: string;
+  };
+  medicamento?: {
+    name: string;
+  };
+  uniforme?: {
+    name: string;
+  };
   cantidad: number;
   firma: string;
   fecha?: string;
   created_at: string;
   updated_at: string;
 }
+
 
 export interface Empleados {
   id?: number;

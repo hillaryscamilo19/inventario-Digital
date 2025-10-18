@@ -6,6 +6,7 @@ import {
   Entrega,
   MedicamentoService,
   Empleados,
+  RegistroEntrega,
 } from '../../../services/medicamento.service';
 
 @Component({
@@ -19,37 +20,37 @@ export class MedicamentoComponent implements OnInit {
   // Listas de datos
   medicamentos: Medicamento[] = [];
   empleados: Empleados[] = [];
-  entregas: Entrega[] = [];
-
+  entrega: RegistroEntrega[] = [];
   // Filtros
   searchTerm: string = '';
   estadoFiltro: string = '';
-
   // Formulario de nuevo medicamento
   nuevoMedicamento: Medicamento = {
     name: '',
-    cantidad: 0,
-    stock_minimo: 0,
     estado: '',
-    fecha_ingreso: '',
-    fecha_vencimiento:''
-
+    stock_actual: 0,
+    stock_minimo: 0,
+    fecha_ingreso: new Date().toISOString(),
+    fecha_vencimiento: new Date().toISOString(),
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString(),
   };
 
   //Filtro de nombre de medicamento
   MedicamentoName: Medicamento = {
     name: '',
-    cantidad: 0,
+    stock_actual: 0,
     stock_minimo: 0,
     estado: '',
     fecha_ingreso: '',
-    fecha_vencimiento:''
+    fecha_vencimiento: '',
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString(),
   };
 
   // Formulario de nueva entrega
   nuevaEntrega: Entrega = {
-    area: '',
-    departamento: '',
+    Area: '',
     medicamento_id: 0,
     empleado_id: 0,
     cantidad: 0,
@@ -113,8 +114,8 @@ export class MedicamentoComponent implements OnInit {
   // Cargar entregas desde la API
   cargarEntregas(): void {
     this.medicamentoService.getEntregas().subscribe({
-      next: (data: Entrega[]) => {
-        this.entregas = data;
+      next: (data: RegistroEntrega[]) => {
+        this.entrega = data;
         console.log('Entregas cargadas:', data);
       },
       error: (error: any) => {
@@ -129,27 +130,51 @@ export class MedicamentoComponent implements OnInit {
   }
 
   // Registrar nuevo medicamento
-registrarMedicamento() {
-  this.medicamentoService.crearMedicamento(this.nuevoMedicamento).subscribe({
-    next: () => {
-      this.cargarMedicamentos();
-      (document.getElementById('my_modal_5') as any).close();
-    },
-    error: (err) => console.error('Error al registrar medicamento:', err),
-  });
-}
+  registrarMedicamento() {
+    this.nuevoMedicamento.fecha_ingreso = new Date(
+      this.nuevoMedicamento.fecha_ingreso
+    ).toISOString();
 
+    this.nuevoMedicamento.fecha_vencimiento = new Date(
+      this.nuevoMedicamento.fecha_vencimiento
+    ).toISOString();
+
+    this.nuevoMedicamento.created_at = new Date().toISOString();
+    this.nuevoMedicamento.updated_at = new Date().toISOString();
+
+    this.medicamentoService.crearMedicamento(this.nuevoMedicamento).subscribe({
+      next: () => {
+        alert('Medicamento registrado correctamente');
+        this.cargarMedicamentos();
+        (document.getElementById('my_modal_5') as any).close();
+        this.nuevoMedicamento = {
+          name: '',
+          estado: '',
+          stock_actual: 0,
+          stock_minimo: 0,
+          fecha_ingreso: new Date().toISOString(),
+          fecha_vencimiento: new Date().toISOString(),
+          created_at: '',
+          updated_at: '',
+        };
+      },
+      error: (err) => {
+        console.error('Error al registrar medicamento:', err);
+        alert('Error al registrar medicamento');
+      },
+    });
+  }
 
   // Registrar nueva entrega
-
   registrarEntrega(): void {
+    console.log('Datos de entrega:', this.nuevaEntrega);
     // Validación mínima
     if (
-      !this.nuevaEntrega.area ||
+      !this.nuevaEntrega.Area ||
       !this.nuevaEntrega.medicamento_id ||
       !this.nuevaEntrega.cantidad ||
       !this.nuevaEntrega.firma ||
-      !this.nuevaEntrega.empleado_id
+      this.nuevaEntrega.empleado_id == null
     ) {
       alert('Por favor complete todos los campos.');
       return;
@@ -195,8 +220,7 @@ registrarMedicamento() {
     const now = new Date().toISOString();
     this.nuevaEntrega = {
       empleado_id: 0,
-      area: '',
-      departamento: '',
+      Area: '',
       medicamento_id: 0,
       cantidad: 0,
       firma: '',

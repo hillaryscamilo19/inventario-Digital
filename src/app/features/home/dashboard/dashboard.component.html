@@ -6,70 +6,30 @@
       <div class="card azul">
         <div>
           <h3>Total Uniformes</h3>
-          <p class="valor">248</p>
-          <p class="detalle">+12 este mes</p>
+          <p class="valor">{{ uniforme.length }}</p>
+          <p class="detalle">Registrados</p>
         </div>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke-width="1.5"
-          stroke="currentColor"
-          class="size-6"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M2.25 7.125C2.25 6.504 2.754 6 3.375 6h6c.621 0 1.125.504 1.125 1.125v3.75c0 .621-.504 1.125-1.125 1.125h-6a1.125 1.125 0 0 1-1.125-1.125v-3.75ZM14.25 8.625c0-.621.504-1.125 1.125-1.125h5.25c.621 0 1.125.504 1.125 1.125v8.25c0 .621-.504 1.125-1.125 1.125h-5.25a1.125 1.125 0 0 1-1.125-1.125v-8.25ZM3.75 16.125c0-.621.504-1.125 1.125-1.125h5.25c.621 0 1.125.504 1.125 1.125v2.25c0 .621-.504 1.125-1.125 1.125h-5.25a1.125 1.125 0 0 1-1.125-1.125v-2.25Z"
-          />
-        </svg>
       </div>
 
       <div class="card verde">
         <div>
           <h3>Medicamentos</h3>
-          <p class="valor">156</p>
-          <p class="detalle">+5 esta semana</p>
+          <p class="valor">{{ medicamentos.length }}</p>
+          <p class="detalle">Registrados</p>
         </div>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke-width="1.5"
-          stroke="currentColor"
-          class="size-6"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244"
-          />
-        </svg>
       </div>
 
       <div class="card morado">
         <div>
           <h3>Entregas Hoy</h3>
-          <p class="valor">8</p>
-          <p class="detalle">+3 vs ayer</p>
+          <p class="valor">{{ entregasHoy.length }}</p>
+          <p class="detalle">Realizadas hoy</p>
         </div>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke-width="1.5"
-          stroke="currentColor"
-          class="size-6"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="m21 7.5-9-5.25L3 7.5m18 0-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9"
-          />
-        </svg>
       </div>
     </div>
+    <!-- CIERRE DEL DIV .cards -->
   </section>
+
   <h2 class="text-info">Ultimas Entregas</h2>
 
   <!-- Sección inferior -->
@@ -84,23 +44,24 @@
             <th class="text-neutral">COLABORADOR</th>
             <th class="text-neutral">AREA</th>
             <th class="text-neutral">MATERIAL</th>
+
             <th class="text-neutral">CANTIDAD</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td class="text-neutral">15/06/2023</td>
-            <td class="text-neutral">María González</td>
-            <td class="text-neutral">Contabilidad</td>
-            <td class="text-neutral">Uniforme Talla M</td>
-            <td class="text-neutral">3</td>
-          </tr>
-          <tr>
-            <td class="text-neutral">15/06/2023</td>
-            <td class="text-neutral">Juan Pérez</td>
-            <td class="text-neutral">Laboratorio</td>
-            <td class="text-neutral">Paracetamol</td>
-            <td class="text-neutral">1</td>
+          <tr *ngFor="let e of entrega | slice : 0 : 5">
+            <td class="text-neutral">
+              {{ e.created_at | date : "shortDate" }}
+            </td>
+            <td class="text-neutral">
+              {{ e.empleado?.nombre }} {{ e.empleado?.apellido }}
+            </td>
+            <td class="text-neutral">{{ e.empleado?.area }}</td>
+            <td class="text-neutral">
+              {{ e.medicamento?.name || e.uniforme?.name }}
+            </td>
+
+            <td class="text-neutral">{{ e.cantidad }}</td>
           </tr>
         </tbody>
       </table>
@@ -109,26 +70,14 @@
     <!-- Stock bajo -->
     <div class="card-box">
       <h3 class="text-neutral">Stock bajo</h3>
-      <div class="alert alert-red">
-        <div>
-          <p class="titulo">Uniforme talla XL</p>
-          <p class="detalle">Quedan 3 unidades</p>
-        </div>
-        <a href="#">Reordenar</a>
-      </div>
 
-      <div class="alert alert-yellow">
+      <div
+        *ngFor="let m of medicamentos | filterStockBajo"
+        class="alert alert-yellow"
+      >
         <div>
-          <p class="titulo">Amoxicilina 500mg</p>
-          <p class="detalle">Quedan 5 unidades</p>
-        </div>
-        <a href="#">Reordenar</a>
-      </div>
-
-      <div class="alert alert-yellow">
-        <div>
-          <p class="titulo">Uniforme talla S</p>
-          <p class="detalle">Quedan 6 unidades</p>
+          <p class="titulo">{{ m.name }}</p>
+          <p class="detalle">Quedan {{ m.stock_actual }} unidades</p>
         </div>
         <a href="#">Reordenar</a>
       </div>

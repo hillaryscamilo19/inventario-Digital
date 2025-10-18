@@ -53,7 +53,6 @@
     </div>
   </div>
 
-  <!-- Columna derecha -->
   <!-- Iterar medicamentos con *ngFor -->
   <div class="Card-container grid gap-2">
     <div
@@ -119,74 +118,213 @@
     />
   </div>
 
+  <!--Modal para registrar nuevo uniforme-->
+  <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
+    <div class="modal-box">
+      <h3 class="text-lg font-bold mb-4">Registrar nuevo Uniforme</h3>
+
+      <form (ngSubmit)="registrarUniforme()" #formMedicamento="ngForm">
+        <!-- Nombre -->
+        <div class="form-control mb-3">
+          <label class="label">
+            <span class="label-text">Nombre</span>
+          </label>
+          <input
+            type="text"
+            class="input input-bordered w-full"
+            [(ngModel)]="nuevouniforme.name"
+            name="name"
+            required
+          />
+        </div>
+
+        <!-- Stock actual -->
+        <div class="form-control mb-3">
+          <label class="label">
+            <span class="label-text">Stock actual</span>
+          </label>
+          <input
+            type="number"
+            class="input input-bordered w-full"
+            [(ngModel)]="nuevouniforme.stock_actual"
+            name="stock_actual"
+            min="0"
+            required
+          />
+        </div>
+
+        <!-- Stock mínimo -->
+        <div class="form-control mb-3">
+          <label class="label">
+            <span class="label-text">Stock mínimo</span>
+          </label>
+          <input
+            type="number"
+            class="input input-bordered w-full"
+            [(ngModel)]="nuevouniforme.stock_minimo"
+            name="stock_minimo"
+            min="0"
+            required
+          />
+        </div>
+
+        <!-- Estado -->
+        <div class="form-control mb-3">
+          <label class="label">
+            <span class="label-text">Estado</span>
+          </label>
+          <select
+            class="select select-bordered w-full"
+            [(ngModel)]="nuevouniforme.estado"
+            name="estado"
+            required
+          >
+            <option [ngValue]="true">Activo</option>
+            <option [ngValue]="false">Inactivo</option>
+          </select>
+        </div>
+
+        <!-- Fechas -->
+        <div class="form-control mb-3">
+          <label class="label">
+            <span class="label-text">Fecha de ingreso</span>
+          </label>
+          <input
+            type="date"
+            class="input input-bordered w-full"
+            [(ngModel)]="nuevouniforme.fecha_ingreso"
+            name="fecha_ingreso"
+            required
+          />
+        </div>
+
+        <div class="form-control mb-3">
+          <label class="label">
+            <span class="label-text">Fecha de vencimiento</span>
+          </label>
+          <input
+            type="date"
+            class="input input-bordered w-full"
+            [(ngModel)]="nuevouniforme.fecha_vencimiento"
+            name="fecha_vencimiento"
+            required
+          />
+        </div>
+
+        <div class="modal-action">
+          <button
+            type="submit"
+            [disabled]="!formMedicamento.form.valid"
+            class="btn btn-primary"
+          >
+            Agregar
+          </button>
+          <button type="button" class="btn" onclick="my_modal_5.close()">
+            Cancelar
+          </button>
+        </div>
+      </form>
+    </div>
+  </dialog>
+
   <!--Modal de Registro medicamento-->
-
   <dialog id="my_modal_4" class="modal">
-    <div class="modal-box w-11/12 max-w-5xl contenerdor-registrar">
-      <div>
-        <h2>Colaborabor</h2>
-        <select class="select w-115 selectBackg">
-          <option disabled selected>Pick a color</option>
-          <option>Crimson</option>
-          <option>Amber</option>
-          <option>Velvet</option>
-        </select>
-      </div>
+    <div class="modal-box w-11/12 max-w-lg">
+      <h3 class="font-bold text-lg mb-4">Registrar Nueva Entrega</h3>
 
-      <div>
-        <h2>Size</h2>
-        <select class="select w-115 selectBackg">
-          <option disabled selected>S</option>
-          <option>M</option>
-          <option>L</option>
-          <option>XL</option>
-        </select>
-      </div>
+      <form (ngSubmit)="registrarEntrega()" #entregaForm="ngForm">
+        <!-- Departamento -->
+        <div class="form-control mb-3">
+          <label class="label">
+            <span class="label-text">Area</span>
+          </label>
+          <input
+            type="text"
+            [(ngModel)]="nuevaEntrega.area"
+            name="Area"
+            required
+            class="input input-bordered w-full"
+          />
+        </div>
+        <!-- Medicamento -->
+        <div class="form-control mb-3">
+          <label class="label">
+            <span class="label-text">Medicamento</span>
+          </label>
+          <select
+            [(ngModel)]="nuevaEntrega.uniforme_id"
+            name="medicamento_id"
+            required
+            class="select select-bordered w-full"
+          >
+            <option [ngValue]="0" disabled>Seleccione un medicamento</option>
+            <option *ngFor="let m of uniforme" [ngValue]="m.id">
+              {{ m.name }}
+            </option>
+          </select>
+        </div>
 
-      <div>
-        <h2>Area</h2>
-        <select class="select w-115 selectBackg">
-          <option disabled selected>S</option>
-          <option>Laboratorio</option>
-          <option>TI</option>
-          <option>Auditoria</option>
-        </select>
-      </div>
+        <!-- Cantidad -->
+        <div class="form-control mb-3">
+          <label class="label">
+            <span class="label-text">Cantidad</span>
+          </label>
+          <input
+            type="number"
+            [(ngModel)]="nuevaEntrega.cantidad"
+            name="cantidad"
+            required
+            class="input input-bordered w-full"
+            min="1"
+          />
+        </div>
 
-      <div>
-        <h2>Uniforme</h2>
-        <select class="select w-115 selectBackg">
-          <option disabled selected>Camisa SSV</option>
-          <option>Poloche SSV</option>
-          <option>Camisa Oftalmolaser</option>
-          <option>Camisa De Laboratorio</option>
-        </select>
-      </div>
+        <!-- Firma -->
+        <div class="form-control mb-3">
+          <label class="label">
+            <span class="label-text">Firma digital</span>
+          </label>
+          <input
+            type="text"
+            [(ngModel)]="nuevaEntrega.firma"
+            name="firma"
+            required
+            class="input input-bordered w-full"
+          />
+        </div>
 
-      <div>
-        <h2>Cantidad</h2>
-        <input
-          type="text"
-          placeholder="Ej: 2"
-          class="input w-115 selectBackg"
-        />
-      </div>
+        <!-- Empleado -->
+        <div class="form-control mb-3">
+          <label class="label">
+            <span class="label-text">Empleado</span>
+          </label>
+          <select
+            [(ngModel)]="nuevaEntrega.empleado_id"
+            name="empleado_id"
+            required
+            class="select select-bordered w-full"
+          >
+            <option [ngValue]="0" disabled>Seleccione un empleado</option>
+            <option *ngFor="let empleado of empleado" [ngValue]="empleado.id">
+              {{ empleado.nombre }} {{ empleado.apellido }}
+            </option>
+          </select>
+        </div>
 
-      <div>
-        <h2>Firma Digital</h2>
-        <input
-          type="text"
-          placeholder="Ingrese su Firma digital"
-          class="input w-115 selectBackg"
-        />
-      </div>
-      <div class="modal-actio">
-        <form method="dialog">
-          <!-- if there is a button, it will close the modal -->
-          <button class="btn selectBackg">Registrar Entrega</button>
-          <button class="btn selectBackg">Cancelar</button>
-        </form>
-      </div>
+        <!-- Botones -->
+        <div class="modal-action">
+          <button
+            type="submit"
+            [disabled]="!entregaForm.form.valid"
+            class="btn btn-primary"
+          >
+            Guardar
+          </button>
+          <button type="button" class="btn" (click)="cerrarModal('my_modal_4')">
+            Cerrar
+          </button>
+        </div>
+      </form>
     </div>
   </dialog>
 </div>
